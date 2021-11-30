@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
--- Date        : Mon Nov 29 23:54:30 2021
+-- Date        : Tue Nov 30 21:50:20 2021
 -- Host        : DESKTOP-A6NE7RQ running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
---               c:/Users/Administrator/Documents/Workspace/soc/soc_termproject/type_7/type_7.srcs/sources_1/bd/design_1/ip/design_1_Segment_Controller_0_0/design_1_Segment_Controller_0_0_sim_netlist.vhdl
+--               C:/Users/Administrator/Documents/Workspace/soc/soc_termproject/type_7/type_7.srcs/sources_1/bd/design_1/ip/design_1_Segment_Controller_0_0/design_1_Segment_Controller_0_0_sim_netlist.vhdl
 -- Design      : design_1_Segment_Controller_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -18,6 +18,7 @@ entity design_1_Segment_Controller_0_0_Segment_Controller is
   port (
     lcd_out : out STD_LOGIC_VECTOR ( 6 downto 0 );
     seg_out : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    displayed_number : in STD_LOGIC_VECTOR ( 15 downto 0 );
     clock_100Mhz : in STD_LOGIC;
     reset : in STD_LOGIC
   );
@@ -194,7 +195,6 @@ architecture STRUCTURE of design_1_Segment_Controller_0_0_Segment_Controller is
   signal \LED_BCD0_carry__0_i_2_n_0\ : STD_LOGIC;
   signal \LED_BCD0_carry__0_i_3_n_0\ : STD_LOGIC;
   signal \LED_BCD0_carry__0_i_4_n_0\ : STD_LOGIC;
-  signal \LED_BCD0_carry__0_i_5_n_0\ : STD_LOGIC;
   signal \LED_BCD0_carry__0_n_0\ : STD_LOGIC;
   signal \LED_BCD0_carry__0_n_1\ : STD_LOGIC;
   signal \LED_BCD0_carry__0_n_2\ : STD_LOGIC;
@@ -282,6 +282,7 @@ architecture STRUCTURE of design_1_Segment_Controller_0_0_Segment_Controller is
   signal \LED_BCD1__48_carry_n_5\ : STD_LOGIC;
   signal \LED_BCD1__48_carry_n_6\ : STD_LOGIC;
   signal \LED_BCD1__48_carry_n_7\ : STD_LOGIC;
+  signal \LED_BCD1__77_carry__0_i_10_n_0\ : STD_LOGIC;
   signal \LED_BCD1__77_carry__0_i_1_n_0\ : STD_LOGIC;
   signal \LED_BCD1__77_carry__0_i_2_n_0\ : STD_LOGIC;
   signal \LED_BCD1__77_carry__0_i_3_n_0\ : STD_LOGIC;
@@ -299,7 +300,6 @@ architecture STRUCTURE of design_1_Segment_Controller_0_0_Segment_Controller is
   signal \LED_BCD1__77_carry__1_i_2_n_0\ : STD_LOGIC;
   signal \LED_BCD1__77_carry__1_i_3_n_0\ : STD_LOGIC;
   signal \LED_BCD1__77_carry__1_i_4_n_0\ : STD_LOGIC;
-  signal \LED_BCD1__77_carry__1_i_5_n_0\ : STD_LOGIC;
   signal \LED_BCD1__77_carry__1_n_0\ : STD_LOGIC;
   signal \LED_BCD1__77_carry__1_n_2\ : STD_LOGIC;
   signal \LED_BCD1__77_carry__1_n_3\ : STD_LOGIC;
@@ -311,7 +311,6 @@ architecture STRUCTURE of design_1_Segment_Controller_0_0_Segment_Controller is
   signal \LED_BCD1__77_carry_i_3_n_0\ : STD_LOGIC;
   signal \LED_BCD1__77_carry_i_4_n_0\ : STD_LOGIC;
   signal \LED_BCD1__77_carry_i_5_n_0\ : STD_LOGIC;
-  signal \LED_BCD1__77_carry_i_6_n_0\ : STD_LOGIC;
   signal \LED_BCD1__77_carry_n_0\ : STD_LOGIC;
   signal \LED_BCD1__77_carry_n_1\ : STD_LOGIC;
   signal \LED_BCD1__77_carry_n_2\ : STD_LOGIC;
@@ -370,45 +369,6 @@ architecture STRUCTURE of design_1_Segment_Controller_0_0_Segment_Controller is
   signal LED_BCD1_carry_n_2 : STD_LOGIC;
   signal LED_BCD1_carry_n_3 : STD_LOGIC;
   signal LED_activating_counter : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal \displayed_number[0]_i_3_n_0\ : STD_LOGIC;
-  signal \displayed_number[0]_i_4_n_0\ : STD_LOGIC;
-  signal \displayed_number[0]_i_5_n_0\ : STD_LOGIC;
-  signal \displayed_number[0]_i_6_n_0\ : STD_LOGIC;
-  signal \displayed_number[0]_i_7_n_0\ : STD_LOGIC;
-  signal \displayed_number[0]_i_8_n_0\ : STD_LOGIC;
-  signal \displayed_number[0]_i_9_n_0\ : STD_LOGIC;
-  signal displayed_number_reg : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal \displayed_number_reg[0]_i_2_n_0\ : STD_LOGIC;
-  signal \displayed_number_reg[0]_i_2_n_1\ : STD_LOGIC;
-  signal \displayed_number_reg[0]_i_2_n_2\ : STD_LOGIC;
-  signal \displayed_number_reg[0]_i_2_n_3\ : STD_LOGIC;
-  signal \displayed_number_reg[0]_i_2_n_4\ : STD_LOGIC;
-  signal \displayed_number_reg[0]_i_2_n_5\ : STD_LOGIC;
-  signal \displayed_number_reg[0]_i_2_n_6\ : STD_LOGIC;
-  signal \displayed_number_reg[0]_i_2_n_7\ : STD_LOGIC;
-  signal \displayed_number_reg[12]_i_1_n_1\ : STD_LOGIC;
-  signal \displayed_number_reg[12]_i_1_n_2\ : STD_LOGIC;
-  signal \displayed_number_reg[12]_i_1_n_3\ : STD_LOGIC;
-  signal \displayed_number_reg[12]_i_1_n_4\ : STD_LOGIC;
-  signal \displayed_number_reg[12]_i_1_n_5\ : STD_LOGIC;
-  signal \displayed_number_reg[12]_i_1_n_6\ : STD_LOGIC;
-  signal \displayed_number_reg[12]_i_1_n_7\ : STD_LOGIC;
-  signal \displayed_number_reg[4]_i_1_n_0\ : STD_LOGIC;
-  signal \displayed_number_reg[4]_i_1_n_1\ : STD_LOGIC;
-  signal \displayed_number_reg[4]_i_1_n_2\ : STD_LOGIC;
-  signal \displayed_number_reg[4]_i_1_n_3\ : STD_LOGIC;
-  signal \displayed_number_reg[4]_i_1_n_4\ : STD_LOGIC;
-  signal \displayed_number_reg[4]_i_1_n_5\ : STD_LOGIC;
-  signal \displayed_number_reg[4]_i_1_n_6\ : STD_LOGIC;
-  signal \displayed_number_reg[4]_i_1_n_7\ : STD_LOGIC;
-  signal \displayed_number_reg[8]_i_1_n_0\ : STD_LOGIC;
-  signal \displayed_number_reg[8]_i_1_n_1\ : STD_LOGIC;
-  signal \displayed_number_reg[8]_i_1_n_2\ : STD_LOGIC;
-  signal \displayed_number_reg[8]_i_1_n_3\ : STD_LOGIC;
-  signal \displayed_number_reg[8]_i_1_n_4\ : STD_LOGIC;
-  signal \displayed_number_reg[8]_i_1_n_5\ : STD_LOGIC;
-  signal \displayed_number_reg[8]_i_1_n_6\ : STD_LOGIC;
-  signal \displayed_number_reg[8]_i_1_n_7\ : STD_LOGIC;
   signal \lcd_out[6]_INST_0_i_10_n_0\ : STD_LOGIC;
   signal \lcd_out[6]_INST_0_i_11_n_0\ : STD_LOGIC;
   signal \lcd_out[6]_INST_0_i_12_n_0\ : STD_LOGIC;
@@ -429,6 +389,7 @@ architecture STRUCTURE of design_1_Segment_Controller_0_0_Segment_Controller is
   signal \lcd_out[6]_INST_0_i_26_n_0\ : STD_LOGIC;
   signal \lcd_out[6]_INST_0_i_27_n_0\ : STD_LOGIC;
   signal \lcd_out[6]_INST_0_i_28_n_0\ : STD_LOGIC;
+  signal \lcd_out[6]_INST_0_i_29_n_0\ : STD_LOGIC;
   signal \lcd_out[6]_INST_0_i_2_n_0\ : STD_LOGIC;
   signal \lcd_out[6]_INST_0_i_3_n_0\ : STD_LOGIC;
   signal \lcd_out[6]_INST_0_i_4_n_0\ : STD_LOGIC;
@@ -437,90 +398,6 @@ architecture STRUCTURE of design_1_Segment_Controller_0_0_Segment_Controller is
   signal \lcd_out[6]_INST_0_i_7_n_0\ : STD_LOGIC;
   signal \lcd_out[6]_INST_0_i_8_n_0\ : STD_LOGIC;
   signal \lcd_out[6]_INST_0_i_9_n_0\ : STD_LOGIC;
-  signal \one_second_counter[0]_i_2_n_0\ : STD_LOGIC;
-  signal \one_second_counter[0]_i_3_n_0\ : STD_LOGIC;
-  signal \one_second_counter[0]_i_4_n_0\ : STD_LOGIC;
-  signal \one_second_counter[0]_i_5_n_0\ : STD_LOGIC;
-  signal \one_second_counter[0]_i_6_n_0\ : STD_LOGIC;
-  signal \one_second_counter[0]_i_7_n_0\ : STD_LOGIC;
-  signal \one_second_counter[0]_i_8_n_0\ : STD_LOGIC;
-  signal \one_second_counter[12]_i_2_n_0\ : STD_LOGIC;
-  signal \one_second_counter[12]_i_3_n_0\ : STD_LOGIC;
-  signal \one_second_counter[12]_i_4_n_0\ : STD_LOGIC;
-  signal \one_second_counter[12]_i_5_n_0\ : STD_LOGIC;
-  signal \one_second_counter[16]_i_2_n_0\ : STD_LOGIC;
-  signal \one_second_counter[16]_i_3_n_0\ : STD_LOGIC;
-  signal \one_second_counter[16]_i_4_n_0\ : STD_LOGIC;
-  signal \one_second_counter[16]_i_5_n_0\ : STD_LOGIC;
-  signal \one_second_counter[20]_i_2_n_0\ : STD_LOGIC;
-  signal \one_second_counter[20]_i_3_n_0\ : STD_LOGIC;
-  signal \one_second_counter[20]_i_4_n_0\ : STD_LOGIC;
-  signal \one_second_counter[20]_i_5_n_0\ : STD_LOGIC;
-  signal \one_second_counter[24]_i_2_n_0\ : STD_LOGIC;
-  signal \one_second_counter[24]_i_3_n_0\ : STD_LOGIC;
-  signal \one_second_counter[24]_i_4_n_0\ : STD_LOGIC;
-  signal \one_second_counter[4]_i_2_n_0\ : STD_LOGIC;
-  signal \one_second_counter[4]_i_3_n_0\ : STD_LOGIC;
-  signal \one_second_counter[4]_i_4_n_0\ : STD_LOGIC;
-  signal \one_second_counter[4]_i_5_n_0\ : STD_LOGIC;
-  signal \one_second_counter[8]_i_2_n_0\ : STD_LOGIC;
-  signal \one_second_counter[8]_i_3_n_0\ : STD_LOGIC;
-  signal \one_second_counter[8]_i_4_n_0\ : STD_LOGIC;
-  signal \one_second_counter[8]_i_5_n_0\ : STD_LOGIC;
-  signal one_second_counter_reg : STD_LOGIC_VECTOR ( 26 downto 0 );
-  signal \one_second_counter_reg[0]_i_1_n_0\ : STD_LOGIC;
-  signal \one_second_counter_reg[0]_i_1_n_1\ : STD_LOGIC;
-  signal \one_second_counter_reg[0]_i_1_n_2\ : STD_LOGIC;
-  signal \one_second_counter_reg[0]_i_1_n_3\ : STD_LOGIC;
-  signal \one_second_counter_reg[0]_i_1_n_4\ : STD_LOGIC;
-  signal \one_second_counter_reg[0]_i_1_n_5\ : STD_LOGIC;
-  signal \one_second_counter_reg[0]_i_1_n_6\ : STD_LOGIC;
-  signal \one_second_counter_reg[0]_i_1_n_7\ : STD_LOGIC;
-  signal \one_second_counter_reg[12]_i_1_n_0\ : STD_LOGIC;
-  signal \one_second_counter_reg[12]_i_1_n_1\ : STD_LOGIC;
-  signal \one_second_counter_reg[12]_i_1_n_2\ : STD_LOGIC;
-  signal \one_second_counter_reg[12]_i_1_n_3\ : STD_LOGIC;
-  signal \one_second_counter_reg[12]_i_1_n_4\ : STD_LOGIC;
-  signal \one_second_counter_reg[12]_i_1_n_5\ : STD_LOGIC;
-  signal \one_second_counter_reg[12]_i_1_n_6\ : STD_LOGIC;
-  signal \one_second_counter_reg[12]_i_1_n_7\ : STD_LOGIC;
-  signal \one_second_counter_reg[16]_i_1_n_0\ : STD_LOGIC;
-  signal \one_second_counter_reg[16]_i_1_n_1\ : STD_LOGIC;
-  signal \one_second_counter_reg[16]_i_1_n_2\ : STD_LOGIC;
-  signal \one_second_counter_reg[16]_i_1_n_3\ : STD_LOGIC;
-  signal \one_second_counter_reg[16]_i_1_n_4\ : STD_LOGIC;
-  signal \one_second_counter_reg[16]_i_1_n_5\ : STD_LOGIC;
-  signal \one_second_counter_reg[16]_i_1_n_6\ : STD_LOGIC;
-  signal \one_second_counter_reg[16]_i_1_n_7\ : STD_LOGIC;
-  signal \one_second_counter_reg[20]_i_1_n_0\ : STD_LOGIC;
-  signal \one_second_counter_reg[20]_i_1_n_1\ : STD_LOGIC;
-  signal \one_second_counter_reg[20]_i_1_n_2\ : STD_LOGIC;
-  signal \one_second_counter_reg[20]_i_1_n_3\ : STD_LOGIC;
-  signal \one_second_counter_reg[20]_i_1_n_4\ : STD_LOGIC;
-  signal \one_second_counter_reg[20]_i_1_n_5\ : STD_LOGIC;
-  signal \one_second_counter_reg[20]_i_1_n_6\ : STD_LOGIC;
-  signal \one_second_counter_reg[20]_i_1_n_7\ : STD_LOGIC;
-  signal \one_second_counter_reg[24]_i_1_n_2\ : STD_LOGIC;
-  signal \one_second_counter_reg[24]_i_1_n_3\ : STD_LOGIC;
-  signal \one_second_counter_reg[24]_i_1_n_5\ : STD_LOGIC;
-  signal \one_second_counter_reg[24]_i_1_n_6\ : STD_LOGIC;
-  signal \one_second_counter_reg[24]_i_1_n_7\ : STD_LOGIC;
-  signal \one_second_counter_reg[4]_i_1_n_0\ : STD_LOGIC;
-  signal \one_second_counter_reg[4]_i_1_n_1\ : STD_LOGIC;
-  signal \one_second_counter_reg[4]_i_1_n_2\ : STD_LOGIC;
-  signal \one_second_counter_reg[4]_i_1_n_3\ : STD_LOGIC;
-  signal \one_second_counter_reg[4]_i_1_n_4\ : STD_LOGIC;
-  signal \one_second_counter_reg[4]_i_1_n_5\ : STD_LOGIC;
-  signal \one_second_counter_reg[4]_i_1_n_6\ : STD_LOGIC;
-  signal \one_second_counter_reg[4]_i_1_n_7\ : STD_LOGIC;
-  signal \one_second_counter_reg[8]_i_1_n_0\ : STD_LOGIC;
-  signal \one_second_counter_reg[8]_i_1_n_1\ : STD_LOGIC;
-  signal \one_second_counter_reg[8]_i_1_n_2\ : STD_LOGIC;
-  signal \one_second_counter_reg[8]_i_1_n_3\ : STD_LOGIC;
-  signal \one_second_counter_reg[8]_i_1_n_4\ : STD_LOGIC;
-  signal \one_second_counter_reg[8]_i_1_n_5\ : STD_LOGIC;
-  signal \one_second_counter_reg[8]_i_1_n_6\ : STD_LOGIC;
-  signal \one_second_counter_reg[8]_i_1_n_7\ : STD_LOGIC;
   signal \refresh_counter[0]_i_2_n_0\ : STD_LOGIC;
   signal \refresh_counter[0]_i_3_n_0\ : STD_LOGIC;
   signal \refresh_counter_reg[0]_i_1_n_0\ : STD_LOGIC;
@@ -580,7 +457,6 @@ architecture STRUCTURE of design_1_Segment_Controller_0_0_Segment_Controller is
   signal \refresh_counter_reg_n_0_[7]\ : STD_LOGIC;
   signal \refresh_counter_reg_n_0_[8]\ : STD_LOGIC;
   signal \refresh_counter_reg_n_0_[9]\ : STD_LOGIC;
-  signal sel : STD_LOGIC;
   signal \NLW_LED_BCD0__107_carry_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_LED_BCD0__107_carry__0_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_LED_BCD0__107_carry__1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -617,52 +493,45 @@ architecture STRUCTURE of design_1_Segment_Controller_0_0_Segment_Controller is
   signal \NLW_LED_BCD1_carry__1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal \NLW_LED_BCD1_carry__3_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_LED_BCD1_carry__3_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 1 );
-  signal \NLW_displayed_number_reg[12]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
-  signal \NLW_one_second_counter_reg[24]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
-  signal \NLW_one_second_counter_reg[24]_i_1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal \NLW_refresh_counter_reg[16]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute HLUTNM : string;
-  attribute HLUTNM of \LED_BCD0__14_carry__0_i_3\ : label is "lutpair3";
-  attribute HLUTNM of \LED_BCD0__14_carry__0_i_8\ : label is "lutpair3";
-  attribute HLUTNM of \LED_BCD0__14_carry_i_1\ : label is "lutpair2";
-  attribute HLUTNM of \LED_BCD0__14_carry_i_2\ : label is "lutpair1";
-  attribute HLUTNM of \LED_BCD0__14_carry_i_3\ : label is "lutpair0";
-  attribute HLUTNM of \LED_BCD0__14_carry_i_5\ : label is "lutpair2";
-  attribute HLUTNM of \LED_BCD0__14_carry_i_6\ : label is "lutpair1";
-  attribute HLUTNM of \LED_BCD0__14_carry_i_7\ : label is "lutpair0";
-  attribute HLUTNM of \LED_BCD0__53_carry__0_i_4\ : label is "lutpair6";
-  attribute HLUTNM of \LED_BCD0__53_carry_i_1\ : label is "lutpair5";
-  attribute HLUTNM of \LED_BCD0__53_carry_i_2\ : label is "lutpair4";
-  attribute HLUTNM of \LED_BCD0__53_carry_i_4\ : label is "lutpair6";
-  attribute HLUTNM of \LED_BCD0__53_carry_i_5\ : label is "lutpair5";
-  attribute HLUTNM of \LED_BCD0__53_carry_i_6\ : label is "lutpair4";
-  attribute HLUTNM of \LED_BCD0__82_carry__0_i_2\ : label is "lutpair9";
-  attribute HLUTNM of \LED_BCD0__82_carry__0_i_3\ : label is "lutpair8";
-  attribute HLUTNM of \LED_BCD0__82_carry__0_i_4\ : label is "lutpair7";
-  attribute HLUTNM of \LED_BCD0__82_carry__0_i_7\ : label is "lutpair9";
-  attribute HLUTNM of \LED_BCD0__82_carry__0_i_8\ : label is "lutpair8";
-  attribute HLUTNM of \LED_BCD0__82_carry_i_4\ : label is "lutpair7";
+  attribute HLUTNM of \LED_BCD0__14_carry__0_i_3\ : label is "lutpair4";
+  attribute HLUTNM of \LED_BCD0__14_carry__0_i_8\ : label is "lutpair4";
+  attribute HLUTNM of \LED_BCD0__14_carry_i_1\ : label is "lutpair3";
+  attribute HLUTNM of \LED_BCD0__14_carry_i_3\ : label is "lutpair2";
+  attribute HLUTNM of \LED_BCD0__14_carry_i_5\ : label is "lutpair3";
+  attribute HLUTNM of \LED_BCD0__14_carry_i_7\ : label is "lutpair2";
+  attribute HLUTNM of \LED_BCD0__53_carry__0_i_4\ : label is "lutpair7";
+  attribute HLUTNM of \LED_BCD0__53_carry_i_1\ : label is "lutpair6";
+  attribute HLUTNM of \LED_BCD0__53_carry_i_2\ : label is "lutpair5";
+  attribute HLUTNM of \LED_BCD0__53_carry_i_4\ : label is "lutpair7";
+  attribute HLUTNM of \LED_BCD0__53_carry_i_5\ : label is "lutpair6";
+  attribute HLUTNM of \LED_BCD0__53_carry_i_6\ : label is "lutpair5";
+  attribute HLUTNM of \LED_BCD0__82_carry__0_i_2\ : label is "lutpair10";
+  attribute HLUTNM of \LED_BCD0__82_carry__0_i_3\ : label is "lutpair9";
+  attribute HLUTNM of \LED_BCD0__82_carry__0_i_4\ : label is "lutpair8";
+  attribute HLUTNM of \LED_BCD0__82_carry__0_i_7\ : label is "lutpair10";
+  attribute HLUTNM of \LED_BCD0__82_carry__0_i_8\ : label is "lutpair9";
+  attribute HLUTNM of \LED_BCD0__82_carry_i_4\ : label is "lutpair8";
+  attribute HLUTNM of \LED_BCD1__23_carry_i_1\ : label is "lutpair1";
+  attribute HLUTNM of \LED_BCD1__23_carry_i_2\ : label is "lutpair0";
+  attribute HLUTNM of \LED_BCD1__23_carry_i_5\ : label is "lutpair1";
+  attribute HLUTNM of \LED_BCD1__23_carry_i_6\ : label is "lutpair0";
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \LED_BCD1__77_carry__0_i_9\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \LED_BCD1__77_carry_i_6\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \displayed_number[0]_i_3\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \lcd_out[0]_INST_0\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \lcd_out[1]_INST_0\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \lcd_out[2]_INST_0\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \lcd_out[3]_INST_0\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \lcd_out[5]_INST_0\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \lcd_out[6]_INST_0\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \lcd_out[6]_INST_0_i_10\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \lcd_out[6]_INST_0_i_14\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \lcd_out[6]_INST_0_i_19\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \lcd_out[6]_INST_0_i_22\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \lcd_out[6]_INST_0_i_24\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \lcd_out[6]_INST_0_i_28\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \lcd_out[6]_INST_0_i_8\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \one_second_counter[0]_i_8\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \seg_out[0]_INST_0\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \seg_out[2]_INST_0\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \seg_out[3]_INST_0\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \lcd_out[6]_INST_0_i_10\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \lcd_out[6]_INST_0_i_12\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \lcd_out[6]_INST_0_i_15\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \lcd_out[6]_INST_0_i_23\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \lcd_out[6]_INST_0_i_24\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \lcd_out[6]_INST_0_i_25\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \lcd_out[6]_INST_0_i_28\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \lcd_out[6]_INST_0_i_3\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \lcd_out[6]_INST_0_i_8\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \lcd_out[6]_INST_0_i_9\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \seg_out[0]_INST_0\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \seg_out[1]_INST_0\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \seg_out[2]_INST_0\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \seg_out[3]_INST_0\ : label is "soft_lutpair1";
 begin
 \LED_BCD0__107_carry\: unisim.vcomponents.CARRY4
      port map (
@@ -706,7 +575,7 @@ begin
     )
         port map (
       I0 => \LED_BCD0__82_carry_n_5\,
-      I1 => displayed_number_reg(9),
+      I1 => displayed_number(9),
       O => \LED_BCD0__107_carry__0_i_1_n_0\
     );
 \LED_BCD0__107_carry__0_i_2\: unisim.vcomponents.LUT2
@@ -715,7 +584,7 @@ begin
     )
         port map (
       I0 => \LED_BCD0__82_carry_n_6\,
-      I1 => displayed_number_reg(8),
+      I1 => displayed_number(8),
       O => \LED_BCD0__107_carry__0_i_2_n_0\
     );
 \LED_BCD0__107_carry__0_i_3\: unisim.vcomponents.LUT2
@@ -724,7 +593,7 @@ begin
     )
         port map (
       I0 => \LED_BCD0__82_carry_n_7\,
-      I1 => displayed_number_reg(7),
+      I1 => displayed_number(7),
       O => \LED_BCD0__107_carry__0_i_3_n_0\
     );
 \LED_BCD0__107_carry__0_i_4\: unisim.vcomponents.LUT2
@@ -733,7 +602,7 @@ begin
     )
         port map (
       I0 => \LED_BCD0__53_carry_n_6\,
-      I1 => displayed_number_reg(6),
+      I1 => displayed_number(6),
       O => \LED_BCD0__107_carry__0_i_4_n_0\
     );
 \LED_BCD0__107_carry__0_i_5\: unisim.vcomponents.LUT4
@@ -741,10 +610,10 @@ begin
       INIT => X"2DD2"
     )
         port map (
-      I0 => displayed_number_reg(9),
+      I0 => displayed_number(9),
       I1 => \LED_BCD0__82_carry_n_5\,
       I2 => \LED_BCD0__82_carry_n_4\,
-      I3 => displayed_number_reg(10),
+      I3 => displayed_number(10),
       O => \LED_BCD0__107_carry__0_i_5_n_0\
     );
 \LED_BCD0__107_carry__0_i_6\: unisim.vcomponents.LUT4
@@ -752,9 +621,9 @@ begin
       INIT => X"D22D"
     )
         port map (
-      I0 => displayed_number_reg(8),
+      I0 => displayed_number(8),
       I1 => \LED_BCD0__82_carry_n_6\,
-      I2 => displayed_number_reg(9),
+      I2 => displayed_number(9),
       I3 => \LED_BCD0__82_carry_n_5\,
       O => \LED_BCD0__107_carry__0_i_6_n_0\
     );
@@ -763,9 +632,9 @@ begin
       INIT => X"D22D"
     )
         port map (
-      I0 => displayed_number_reg(7),
+      I0 => displayed_number(7),
       I1 => \LED_BCD0__82_carry_n_7\,
-      I2 => displayed_number_reg(8),
+      I2 => displayed_number(8),
       I3 => \LED_BCD0__82_carry_n_6\,
       O => \LED_BCD0__107_carry__0_i_7_n_0\
     );
@@ -774,9 +643,9 @@ begin
       INIT => X"D22D"
     )
         port map (
-      I0 => displayed_number_reg(6),
+      I0 => displayed_number(6),
       I1 => \LED_BCD0__53_carry_n_6\,
-      I2 => displayed_number_reg(7),
+      I2 => displayed_number(7),
       I3 => \LED_BCD0__82_carry_n_7\,
       O => \LED_BCD0__107_carry__0_i_8_n_0\
     );
@@ -804,7 +673,7 @@ begin
     )
         port map (
       I0 => \LED_BCD0__82_carry__0_n_5\,
-      I1 => displayed_number_reg(13),
+      I1 => displayed_number(13),
       O => \LED_BCD0__107_carry__1_i_1_n_0\
     );
 \LED_BCD0__107_carry__1_i_2\: unisim.vcomponents.LUT2
@@ -813,7 +682,7 @@ begin
     )
         port map (
       I0 => \LED_BCD0__82_carry__0_n_6\,
-      I1 => displayed_number_reg(12),
+      I1 => displayed_number(12),
       O => \LED_BCD0__107_carry__1_i_2_n_0\
     );
 \LED_BCD0__107_carry__1_i_3\: unisim.vcomponents.LUT2
@@ -822,7 +691,7 @@ begin
     )
         port map (
       I0 => \LED_BCD0__82_carry__0_n_7\,
-      I1 => displayed_number_reg(11),
+      I1 => displayed_number(11),
       O => \LED_BCD0__107_carry__1_i_3_n_0\
     );
 \LED_BCD0__107_carry__1_i_4\: unisim.vcomponents.LUT2
@@ -831,7 +700,7 @@ begin
     )
         port map (
       I0 => \LED_BCD0__82_carry_n_4\,
-      I1 => displayed_number_reg(10),
+      I1 => displayed_number(10),
       O => \LED_BCD0__107_carry__1_i_4_n_0\
     );
 \LED_BCD0__107_carry__1_i_5\: unisim.vcomponents.LUT4
@@ -839,10 +708,10 @@ begin
       INIT => X"B44B"
     )
         port map (
-      I0 => displayed_number_reg(13),
+      I0 => displayed_number(13),
       I1 => \LED_BCD0__82_carry__0_n_5\,
       I2 => \LED_BCD0__82_carry__0_n_4\,
-      I3 => displayed_number_reg(14),
+      I3 => displayed_number(14),
       O => \LED_BCD0__107_carry__1_i_5_n_0\
     );
 \LED_BCD0__107_carry__1_i_6\: unisim.vcomponents.LUT4
@@ -850,10 +719,10 @@ begin
       INIT => X"B44B"
     )
         port map (
-      I0 => displayed_number_reg(12),
+      I0 => displayed_number(12),
       I1 => \LED_BCD0__82_carry__0_n_6\,
       I2 => \LED_BCD0__82_carry__0_n_5\,
-      I3 => displayed_number_reg(13),
+      I3 => displayed_number(13),
       O => \LED_BCD0__107_carry__1_i_6_n_0\
     );
 \LED_BCD0__107_carry__1_i_7\: unisim.vcomponents.LUT4
@@ -861,10 +730,10 @@ begin
       INIT => X"B44B"
     )
         port map (
-      I0 => displayed_number_reg(11),
+      I0 => displayed_number(11),
       I1 => \LED_BCD0__82_carry__0_n_7\,
       I2 => \LED_BCD0__82_carry__0_n_6\,
-      I3 => displayed_number_reg(12),
+      I3 => displayed_number(12),
       O => \LED_BCD0__107_carry__1_i_7_n_0\
     );
 \LED_BCD0__107_carry__1_i_8\: unisim.vcomponents.LUT4
@@ -872,10 +741,10 @@ begin
       INIT => X"B44B"
     )
         port map (
-      I0 => displayed_number_reg(10),
+      I0 => displayed_number(10),
       I1 => \LED_BCD0__82_carry_n_4\,
       I2 => \LED_BCD0__82_carry__0_n_7\,
-      I3 => displayed_number_reg(11),
+      I3 => displayed_number(11),
       O => \LED_BCD0__107_carry__1_i_8_n_0\
     );
 \LED_BCD0__107_carry__2\: unisim.vcomponents.CARRY4
@@ -896,7 +765,7 @@ begin
     )
         port map (
       I0 => \LED_BCD0__82_carry__0_n_4\,
-      I1 => displayed_number_reg(14),
+      I1 => displayed_number(14),
       O => \LED_BCD0__107_carry__2_i_1_n_0\
     );
 \LED_BCD0__107_carry__2_i_2\: unisim.vcomponents.LUT4
@@ -904,10 +773,10 @@ begin
       INIT => X"B44B"
     )
         port map (
-      I0 => displayed_number_reg(14),
+      I0 => displayed_number(14),
       I1 => \LED_BCD0__82_carry__0_n_4\,
       I2 => \LED_BCD0__82_carry__1_n_7\,
-      I3 => displayed_number_reg(15),
+      I3 => displayed_number(15),
       O => \LED_BCD0__107_carry__2_i_2_n_0\
     );
 \LED_BCD0__107_carry_i_1\: unisim.vcomponents.LUT2
@@ -916,7 +785,7 @@ begin
     )
         port map (
       I0 => \LED_BCD0__53_carry_n_7\,
-      I1 => displayed_number_reg(5),
+      I1 => displayed_number(5),
       O => \LED_BCD0__107_carry_i_1_n_0\
     );
 \LED_BCD0__107_carry_i_2\: unisim.vcomponents.LUT2
@@ -925,7 +794,7 @@ begin
     )
         port map (
       I0 => \LED_BCD0__29_carry__2_n_7\,
-      I1 => displayed_number_reg(4),
+      I1 => displayed_number(4),
       O => \LED_BCD0__107_carry_i_2_n_0\
     );
 \LED_BCD0__107_carry_i_3\: unisim.vcomponents.LUT2
@@ -934,7 +803,7 @@ begin
     )
         port map (
       I0 => \LED_BCD0__29_carry__1_n_4\,
-      I1 => displayed_number_reg(3),
+      I1 => displayed_number(3),
       O => \LED_BCD0__107_carry_i_3_n_0\
     );
 \LED_BCD0__107_carry_i_4\: unisim.vcomponents.LUT4
@@ -942,9 +811,9 @@ begin
       INIT => X"D22D"
     )
         port map (
-      I0 => displayed_number_reg(5),
+      I0 => displayed_number(5),
       I1 => \LED_BCD0__53_carry_n_7\,
-      I2 => displayed_number_reg(6),
+      I2 => displayed_number(6),
       I3 => \LED_BCD0__53_carry_n_6\,
       O => \LED_BCD0__107_carry_i_4_n_0\
     );
@@ -953,9 +822,9 @@ begin
       INIT => X"4BB4"
     )
         port map (
-      I0 => displayed_number_reg(4),
+      I0 => displayed_number(4),
       I1 => \LED_BCD0__29_carry__2_n_7\,
-      I2 => displayed_number_reg(5),
+      I2 => displayed_number(5),
       I3 => \LED_BCD0__53_carry_n_7\,
       O => \LED_BCD0__107_carry_i_5_n_0\
     );
@@ -964,9 +833,9 @@ begin
       INIT => X"2DD2"
     )
         port map (
-      I0 => displayed_number_reg(3),
+      I0 => displayed_number(3),
       I1 => \LED_BCD0__29_carry__1_n_4\,
-      I2 => displayed_number_reg(4),
+      I2 => displayed_number(4),
       I3 => \LED_BCD0__29_carry__2_n_7\,
       O => \LED_BCD0__107_carry_i_6_n_0\
     );
@@ -975,7 +844,7 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(3),
+      I0 => displayed_number(3),
       I1 => \LED_BCD0__29_carry__1_n_4\,
       O => \LED_BCD0__107_carry_i_7_n_0\
     );
@@ -1032,7 +901,7 @@ begin
       INIT => X"822882A0"
     )
         port map (
-      I0 => \LED_BCD1__77_carry__1_i_5_n_0\,
+      I0 => \LED_BCD1__77_carry__0_i_10_n_0\,
       I1 => \LED_BCD0_carry__1_n_7\,
       I2 => \LED_BCD0_carry__1_n_5\,
       I3 => \LED_BCD0_carry__1_n_6\,
@@ -1096,7 +965,7 @@ begin
       I2 => \LED_BCD0_carry__1_n_6\,
       I3 => \LED_BCD0_carry__1_n_5\,
       I4 => \LED_BCD0_carry__1_n_7\,
-      I5 => \LED_BCD1__77_carry__1_i_5_n_0\,
+      I5 => \LED_BCD1__77_carry__0_i_10_n_0\,
       O => \LED_BCD0__14_carry__0_i_7_n_0\
     );
 \LED_BCD0__14_carry__0_i_8\: unisim.vcomponents.LUT5
@@ -1120,13 +989,16 @@ begin
       I1 => \LED_BCD1__77_carry_i_1_n_0\,
       O => \LED_BCD0__14_carry_i_1_n_0\
     );
-\LED_BCD0__14_carry_i_2\: unisim.vcomponents.LUT2
+\LED_BCD0__14_carry_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"2"
+      INIT => X"F20D0000"
     )
         port map (
-      I0 => \LED_BCD0_carry__1_n_6\,
-      I1 => \LED_BCD1__77_carry_i_6_n_0\,
+      I0 => \LED_BCD1__48_carry__1_n_6\,
+      I1 => \LED_BCD1__77_carry_i_5_n_0\,
+      I2 => \LED_BCD1__48_carry__1_n_5\,
+      I3 => \LED_BCD1__48_carry_n_4\,
+      I4 => \LED_BCD0_carry__1_n_6\,
       O => \LED_BCD0__14_carry_i_2_n_0\
     );
 \LED_BCD0__14_carry_i_3\: unisim.vcomponents.LUT2
@@ -1159,14 +1031,17 @@ begin
       I2 => \LED_BCD0__14_carry_i_2_n_0\,
       O => \LED_BCD0__14_carry_i_5_n_0\
     );
-\LED_BCD0__14_carry_i_6\: unisim.vcomponents.LUT3
+\LED_BCD0__14_carry_i_6\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"69"
+      INIT => X"F20D0DF20DF2F20D"
     )
         port map (
-      I0 => \LED_BCD0_carry__1_n_6\,
-      I1 => \LED_BCD1__77_carry_i_6_n_0\,
-      I2 => \LED_BCD0__14_carry_i_3_n_0\,
+      I0 => \LED_BCD1__48_carry__1_n_6\,
+      I1 => \LED_BCD1__77_carry_i_5_n_0\,
+      I2 => \LED_BCD1__48_carry__1_n_5\,
+      I3 => \LED_BCD1__48_carry_n_4\,
+      I4 => \LED_BCD0__14_carry_i_3_n_0\,
+      I5 => \LED_BCD0_carry__1_n_6\,
       O => \LED_BCD0__14_carry_i_6_n_0\
     );
 \LED_BCD0__14_carry_i_7\: unisim.vcomponents.LUT2
@@ -1186,13 +1061,13 @@ begin
       CO(1) => \LED_BCD0__29_carry_n_2\,
       CO(0) => \LED_BCD0__29_carry_n_3\,
       CYINIT => '0',
-      DI(3 downto 1) => displayed_number_reg(8 downto 6),
+      DI(3 downto 1) => displayed_number(8 downto 6),
       DI(0) => '0',
       O(3 downto 0) => \NLW_LED_BCD0__29_carry_O_UNCONNECTED\(3 downto 0),
       S(3) => \LED_BCD0__29_carry_i_1_n_0\,
       S(2) => \LED_BCD0__29_carry_i_2_n_0\,
       S(1) => \LED_BCD0__29_carry_i_3_n_0\,
-      S(0) => displayed_number_reg(5)
+      S(0) => displayed_number(5)
     );
 \LED_BCD0__29_carry__0\: unisim.vcomponents.CARRY4
      port map (
@@ -1202,7 +1077,7 @@ begin
       CO(1) => \LED_BCD0__29_carry__0_n_2\,
       CO(0) => \LED_BCD0__29_carry__0_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => displayed_number_reg(12 downto 9),
+      DI(3 downto 0) => displayed_number(12 downto 9),
       O(3 downto 0) => \NLW_LED_BCD0__29_carry__0_O_UNCONNECTED\(3 downto 0),
       S(3) => \LED_BCD0__29_carry__0_i_1_n_0\,
       S(2) => \LED_BCD0__29_carry__0_i_2_n_0\,
@@ -1214,8 +1089,8 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(12),
-      I1 => displayed_number_reg(6),
+      I0 => displayed_number(12),
+      I1 => displayed_number(6),
       O => \LED_BCD0__29_carry__0_i_1_n_0\
     );
 \LED_BCD0__29_carry__0_i_2\: unisim.vcomponents.LUT2
@@ -1223,8 +1098,8 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(11),
-      I1 => displayed_number_reg(5),
+      I0 => displayed_number(11),
+      I1 => displayed_number(5),
       O => \LED_BCD0__29_carry__0_i_2_n_0\
     );
 \LED_BCD0__29_carry__0_i_3\: unisim.vcomponents.LUT2
@@ -1232,8 +1107,8 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(10),
-      I1 => displayed_number_reg(4),
+      I0 => displayed_number(10),
+      I1 => displayed_number(4),
       O => \LED_BCD0__29_carry__0_i_3_n_0\
     );
 \LED_BCD0__29_carry__0_i_4\: unisim.vcomponents.LUT2
@@ -1241,8 +1116,8 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(9),
-      I1 => displayed_number_reg(3),
+      I0 => displayed_number(9),
+      I1 => displayed_number(3),
       O => \LED_BCD0__29_carry__0_i_4_n_0\
     );
 \LED_BCD0__29_carry__1\: unisim.vcomponents.CARRY4
@@ -1254,10 +1129,10 @@ begin
       CO(0) => \LED_BCD0__29_carry__1_n_3\,
       CYINIT => '0',
       DI(3) => '0',
-      DI(2 downto 0) => displayed_number_reg(15 downto 13),
+      DI(2 downto 0) => displayed_number(15 downto 13),
       O(3) => \LED_BCD0__29_carry__1_n_4\,
       O(2 downto 0) => \NLW_LED_BCD0__29_carry__1_O_UNCONNECTED\(2 downto 0),
-      S(3) => displayed_number_reg(10),
+      S(3) => displayed_number(10),
       S(2) => \LED_BCD0__29_carry__1_i_1_n_0\,
       S(1) => \LED_BCD0__29_carry__1_i_2_n_0\,
       S(0) => \LED_BCD0__29_carry__1_i_3_n_0\
@@ -1267,8 +1142,8 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(15),
-      I1 => displayed_number_reg(9),
+      I0 => displayed_number(15),
+      I1 => displayed_number(9),
       O => \LED_BCD0__29_carry__1_i_1_n_0\
     );
 \LED_BCD0__29_carry__1_i_2\: unisim.vcomponents.LUT2
@@ -1276,8 +1151,8 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(14),
-      I1 => displayed_number_reg(8),
+      I0 => displayed_number(14),
+      I1 => displayed_number(8),
       O => \LED_BCD0__29_carry__1_i_2_n_0\
     );
 \LED_BCD0__29_carry__1_i_3\: unisim.vcomponents.LUT2
@@ -1285,8 +1160,8 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(13),
-      I1 => displayed_number_reg(7),
+      I0 => displayed_number(13),
+      I1 => displayed_number(7),
       O => \LED_BCD0__29_carry__1_i_3_n_0\
     );
 \LED_BCD0__29_carry__2\: unisim.vcomponents.CARRY4
@@ -1302,7 +1177,7 @@ begin
       O(2) => \LED_BCD0__29_carry__2_n_5\,
       O(1) => \LED_BCD0__29_carry__2_n_6\,
       O(0) => \LED_BCD0__29_carry__2_n_7\,
-      S(3 downto 0) => displayed_number_reg(14 downto 11)
+      S(3 downto 0) => displayed_number(14 downto 11)
     );
 \LED_BCD0__29_carry__3\: unisim.vcomponents.CARRY4
      port map (
@@ -1315,15 +1190,15 @@ begin
       O(3 downto 1) => \NLW_LED_BCD0__29_carry__3_O_UNCONNECTED\(3 downto 1),
       O(0) => \LED_BCD0__29_carry__3_n_7\,
       S(3 downto 1) => B"001",
-      S(0) => displayed_number_reg(15)
+      S(0) => displayed_number(15)
     );
 \LED_BCD0__29_carry_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(8),
-      I1 => displayed_number_reg(2),
+      I0 => displayed_number(8),
+      I1 => displayed_number(2),
       O => \LED_BCD0__29_carry_i_1_n_0\
     );
 \LED_BCD0__29_carry_i_2\: unisim.vcomponents.LUT2
@@ -1331,8 +1206,8 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(7),
-      I1 => displayed_number_reg(1),
+      I0 => displayed_number(7),
+      I1 => displayed_number(1),
       O => \LED_BCD0__29_carry_i_2_n_0\
     );
 \LED_BCD0__29_carry_i_3\: unisim.vcomponents.LUT2
@@ -1340,8 +1215,8 @@ begin
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(6),
-      I1 => displayed_number_reg(0),
+      I0 => displayed_number(6),
+      I1 => displayed_number(0),
       O => \LED_BCD0__29_carry_i_3_n_0\
     );
 \LED_BCD0__53_carry\: unisim.vcomponents.CARRY4
@@ -1821,65 +1696,51 @@ LED_BCD0_carry: unisim.vcomponents.CARRY4
       DI(3) => \LED_BCD1__77_carry__0_i_1_n_0\,
       DI(2) => \LED_BCD1__77_carry__0_i_2_n_0\,
       DI(1) => \LED_BCD1__77_carry__0_i_3_n_0\,
-      DI(0) => \LED_BCD0_carry__0_i_1_n_0\,
+      DI(0) => \LED_BCD1__77_carry__0_i_2_n_0\,
       O(3 downto 0) => \NLW_LED_BCD0_carry__0_O_UNCONNECTED\(3 downto 0),
-      S(3) => \LED_BCD0_carry__0_i_2_n_0\,
-      S(2) => \LED_BCD0_carry__0_i_3_n_0\,
-      S(1) => \LED_BCD0_carry__0_i_4_n_0\,
-      S(0) => \LED_BCD0_carry__0_i_5_n_0\
+      S(3) => \LED_BCD0_carry__0_i_1_n_0\,
+      S(2) => \LED_BCD0_carry__0_i_2_n_0\,
+      S(1) => \LED_BCD0_carry__0_i_3_n_0\,
+      S(0) => \LED_BCD0_carry__0_i_4_n_0\
     );
-\LED_BCD0_carry__0_i_1\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"999A"
-    )
-        port map (
-      I0 => \LED_BCD1__48_carry__0_n_6\,
-      I1 => \LED_BCD1__77_carry__0_i_9_n_0\,
-      I2 => \LED_BCD1__48_carry__0_n_7\,
-      I3 => \LED_BCD1__48_carry_n_4\,
-      O => \LED_BCD0_carry__0_i_1_n_0\
-    );
-\LED_BCD0_carry__0_i_2\: unisim.vcomponents.LUT2
+\LED_BCD0_carry__0_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"6"
     )
         port map (
       I0 => \LED_BCD1__77_carry__0_i_1_n_0\,
       I1 => \LED_BCD1__77_carry__0_i_3_n_0\,
-      O => \LED_BCD0_carry__0_i_2_n_0\
+      O => \LED_BCD0_carry__0_i_1_n_0\
     );
-\LED_BCD0_carry__0_i_3\: unisim.vcomponents.LUT6
+\LED_BCD0_carry__0_i_2\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"33336663CCCC333C"
+      INIT => X"9"
     )
         port map (
-      I0 => \LED_BCD1__48_carry__0_n_5\,
-      I1 => \LED_BCD1__48_carry__0_n_4\,
-      I2 => \LED_BCD1__48_carry_n_4\,
-      I3 => \LED_BCD1__48_carry__0_n_7\,
-      I4 => \LED_BCD1__77_carry__0_i_9_n_0\,
-      I5 => \LED_BCD1__48_carry__0_n_6\,
-      O => \LED_BCD0_carry__0_i_3_n_0\
+      I0 => \LED_BCD1__77_carry__0_i_10_n_0\,
+      I1 => \LED_BCD1__77_carry__0_i_2_n_0\,
+      O => \LED_BCD0_carry__0_i_2_n_0\
     );
-\LED_BCD0_carry__0_i_4\: unisim.vcomponents.LUT2
+\LED_BCD0_carry__0_i_3\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"6"
     )
         port map (
       I0 => \LED_BCD1__77_carry__0_i_3_n_0\,
       I1 => \LED_BCD1__77_carry_i_1_n_0\,
-      O => \LED_BCD0_carry__0_i_4_n_0\
+      O => \LED_BCD0_carry__0_i_3_n_0\
     );
-\LED_BCD0_carry__0_i_5\: unisim.vcomponents.LUT4
+\LED_BCD0_carry__0_i_4\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"3C39"
+      INIT => X"F20D0DF2"
     )
         port map (
-      I0 => \LED_BCD1__48_carry__0_n_7\,
-      I1 => \LED_BCD1__48_carry__0_n_6\,
-      I2 => \LED_BCD1__48_carry_n_4\,
-      I3 => \LED_BCD1__77_carry__0_i_9_n_0\,
-      O => \LED_BCD0_carry__0_i_5_n_0\
+      I0 => \LED_BCD1__48_carry__1_n_6\,
+      I1 => \LED_BCD1__77_carry_i_5_n_0\,
+      I2 => \LED_BCD1__48_carry__1_n_5\,
+      I3 => \LED_BCD1__48_carry_n_4\,
+      I4 => \LED_BCD1__77_carry__0_i_2_n_0\,
+      O => \LED_BCD0_carry__0_i_4_n_0\
     );
 \LED_BCD0_carry__1\: unisim.vcomponents.CARRY4
      port map (
@@ -1902,24 +1763,24 @@ LED_BCD0_carry: unisim.vcomponents.CARRY4
     );
 \LED_BCD0_carry__1_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"7780"
+      INIT => X"6A2A"
     )
         port map (
-      I0 => \LED_BCD1__48_carry__1_n_7\,
-      I1 => \LED_BCD1__77_carry_i_5_n_0\,
-      I2 => \LED_BCD1__48_carry__1_n_5\,
-      I3 => \LED_BCD1__48_carry__1_n_6\,
+      I0 => \LED_BCD1__48_carry__1_n_6\,
+      I1 => \LED_BCD1__48_carry__1_n_7\,
+      I2 => \LED_BCD1__77_carry__0_i_8_n_0\,
+      I3 => \LED_BCD1__48_carry__1_n_5\,
       O => \LED_BCD0_carry__1_i_1_n_0\
     );
 \LED_BCD0_carry__1_i_2\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"26CC"
+      INIT => X"1FC0"
     )
         port map (
-      I0 => \LED_BCD1__48_carry__1_n_5\,
-      I1 => \LED_BCD1__48_carry__1_n_7\,
-      I2 => \LED_BCD1__48_carry__1_n_6\,
-      I3 => \LED_BCD1__77_carry_i_5_n_0\,
+      I0 => \LED_BCD1__48_carry__1_n_6\,
+      I1 => \LED_BCD1__48_carry__1_n_5\,
+      I2 => \LED_BCD1__77_carry__0_i_8_n_0\,
+      I3 => \LED_BCD1__48_carry__1_n_7\,
       O => \LED_BCD0_carry__1_i_2_n_0\
     );
 \LED_BCD0_carry__1_i_3\: unisim.vcomponents.LUT2
@@ -1928,7 +1789,7 @@ LED_BCD0_carry: unisim.vcomponents.CARRY4
     )
         port map (
       I0 => \LED_BCD1__77_carry__1_i_1_n_0\,
-      I1 => \LED_BCD1__77_carry__1_i_5_n_0\,
+      I1 => \LED_BCD1__77_carry__0_i_10_n_0\,
       O => \LED_BCD0_carry__1_i_3_n_0\
     );
 LED_BCD0_carry_i_1: unisim.vcomponents.LUT2
@@ -1940,13 +1801,16 @@ LED_BCD0_carry_i_1: unisim.vcomponents.LUT2
       I1 => \LED_BCD1__48_carry_n_5\,
       O => LED_BCD0_carry_i_1_n_0
     );
-LED_BCD0_carry_i_2: unisim.vcomponents.LUT2
+LED_BCD0_carry_i_2: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"6"
+      INIT => X"F20D0DF2"
     )
         port map (
-      I0 => \LED_BCD1__77_carry_i_6_n_0\,
-      I1 => \LED_BCD1__48_carry_n_6\,
+      I0 => \LED_BCD1__48_carry__1_n_6\,
+      I1 => \LED_BCD1__77_carry_i_5_n_0\,
+      I2 => \LED_BCD1__48_carry__1_n_5\,
+      I3 => \LED_BCD1__48_carry_n_4\,
+      I4 => \LED_BCD1__48_carry_n_6\,
       O => LED_BCD0_carry_i_2_n_0
     );
 LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
@@ -2189,7 +2053,7 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       CO(1) => \LED_BCD1__48_carry_n_2\,
       CO(0) => \LED_BCD1__48_carry_n_3\,
       CYINIT => '1',
-      DI(3 downto 0) => displayed_number_reg(3 downto 0),
+      DI(3 downto 0) => displayed_number(3 downto 0),
       O(3) => \LED_BCD1__48_carry_n_4\,
       O(2) => \LED_BCD1__48_carry_n_5\,
       O(1) => \LED_BCD1__48_carry_n_6\,
@@ -2207,7 +2071,7 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       CO(1) => \LED_BCD1__48_carry__0_n_2\,
       CO(0) => \LED_BCD1__48_carry__0_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => displayed_number_reg(7 downto 4),
+      DI(3 downto 0) => displayed_number(7 downto 4),
       O(3) => \LED_BCD1__48_carry__0_n_4\,
       O(2) => \LED_BCD1__48_carry__0_n_5\,
       O(1) => \LED_BCD1__48_carry__0_n_6\,
@@ -2222,7 +2086,7 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       INIT => X"9"
     )
         port map (
-      I0 => displayed_number_reg(7),
+      I0 => displayed_number(7),
       I1 => \LED_BCD1__39_carry_n_7\,
       O => \LED_BCD1__48_carry__0_i_1_n_0\
     );
@@ -2231,7 +2095,7 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       INIT => X"9"
     )
         port map (
-      I0 => displayed_number_reg(6),
+      I0 => displayed_number(6),
       I1 => \LED_BCD1__23_carry_n_6\,
       O => \LED_BCD1__48_carry__0_i_2_n_0\
     );
@@ -2240,7 +2104,7 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       INIT => X"9"
     )
         port map (
-      I0 => displayed_number_reg(5),
+      I0 => displayed_number(5),
       I1 => \LED_BCD1__23_carry_n_7\,
       O => \LED_BCD1__48_carry__0_i_3_n_0\
     );
@@ -2249,7 +2113,7 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       INIT => X"9"
     )
         port map (
-      I0 => displayed_number_reg(4),
+      I0 => displayed_number(4),
       I1 => \LED_BCD1_carry__2_n_7\,
       O => \LED_BCD1__48_carry__0_i_4_n_0\
     );
@@ -2261,7 +2125,7 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       CO(0) => \LED_BCD1__48_carry__1_n_3\,
       CYINIT => '0',
       DI(3 downto 2) => B"00",
-      DI(1 downto 0) => displayed_number_reg(9 downto 8),
+      DI(1 downto 0) => displayed_number(9 downto 8),
       O(3) => \NLW_LED_BCD1__48_carry__1_O_UNCONNECTED\(3),
       O(2) => \LED_BCD1__48_carry__1_n_5\,
       O(1) => \LED_BCD1__48_carry__1_n_6\,
@@ -2276,7 +2140,7 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       INIT => X"9"
     )
         port map (
-      I0 => displayed_number_reg(10),
+      I0 => displayed_number(10),
       I1 => \LED_BCD1__39_carry_n_4\,
       O => \LED_BCD1__48_carry__1_i_1_n_0\
     );
@@ -2285,7 +2149,7 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       INIT => X"9"
     )
         port map (
-      I0 => displayed_number_reg(9),
+      I0 => displayed_number(9),
       I1 => \LED_BCD1__39_carry_n_5\,
       O => \LED_BCD1__48_carry__1_i_2_n_0\
     );
@@ -2294,7 +2158,7 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       INIT => X"9"
     )
         port map (
-      I0 => displayed_number_reg(8),
+      I0 => displayed_number(8),
       I1 => \LED_BCD1__39_carry_n_6\,
       O => \LED_BCD1__48_carry__1_i_3_n_0\
     );
@@ -2303,7 +2167,7 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       INIT => X"9"
     )
         port map (
-      I0 => displayed_number_reg(3),
+      I0 => displayed_number(3),
       I1 => \LED_BCD1_carry__1_n_4\,
       O => \LED_BCD1__48_carry_i_1_n_0\
     );
@@ -2312,7 +2176,7 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       INIT => X"1"
     )
         port map (
-      I0 => displayed_number_reg(2),
+      I0 => displayed_number(2),
       O => \LED_BCD1__48_carry_i_2_n_0\
     );
 \LED_BCD1__48_carry_i_3\: unisim.vcomponents.LUT1
@@ -2320,7 +2184,7 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       INIT => X"1"
     )
         port map (
-      I0 => displayed_number_reg(1),
+      I0 => displayed_number(1),
       O => \LED_BCD1__48_carry_i_3_n_0\
     );
 \LED_BCD1__48_carry_i_4\: unisim.vcomponents.LUT1
@@ -2328,7 +2192,7 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       INIT => X"1"
     )
         port map (
-      I0 => displayed_number_reg(0),
+      I0 => displayed_number(0),
       O => \LED_BCD1__48_carry_i_4_n_0\
     );
 \LED_BCD1__77_carry\: unisim.vcomponents.CARRY4
@@ -2360,33 +2224,48 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       DI(3) => \LED_BCD1__77_carry__0_i_1_n_0\,
       DI(2) => \LED_BCD1__77_carry__0_i_2_n_0\,
       DI(1) => \LED_BCD1__77_carry__0_i_3_n_0\,
-      DI(0) => \LED_BCD1__77_carry__0_i_4_n_0\,
+      DI(0) => \LED_BCD1__77_carry__0_i_2_n_0\,
       O(3 downto 0) => \NLW_LED_BCD1__77_carry__0_O_UNCONNECTED\(3 downto 0),
-      S(3) => \LED_BCD1__77_carry__0_i_5_n_0\,
-      S(2) => \LED_BCD1__77_carry__0_i_6_n_0\,
-      S(1) => \LED_BCD1__77_carry__0_i_7_n_0\,
-      S(0) => \LED_BCD1__77_carry__0_i_8_n_0\
+      S(3) => \LED_BCD1__77_carry__0_i_4_n_0\,
+      S(2) => \LED_BCD1__77_carry__0_i_5_n_0\,
+      S(1) => \LED_BCD1__77_carry__0_i_6_n_0\,
+      S(0) => \LED_BCD1__77_carry__0_i_7_n_0\
     );
 \LED_BCD1__77_carry__0_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"26CC"
+      INIT => X"1FC0"
     )
         port map (
-      I0 => \LED_BCD1__48_carry__1_n_5\,
-      I1 => \LED_BCD1__48_carry__1_n_7\,
-      I2 => \LED_BCD1__48_carry__1_n_6\,
-      I3 => \LED_BCD1__77_carry_i_5_n_0\,
+      I0 => \LED_BCD1__48_carry__1_n_6\,
+      I1 => \LED_BCD1__48_carry__1_n_5\,
+      I2 => \LED_BCD1__77_carry__0_i_8_n_0\,
+      I3 => \LED_BCD1__48_carry__1_n_7\,
       O => \LED_BCD1__77_carry__0_i_1_n_0\
     );
-\LED_BCD1__77_carry__0_i_2\: unisim.vcomponents.LUT4
+\LED_BCD1__77_carry__0_i_10\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"999A"
+      INIT => X"5595559555955555"
+    )
+        port map (
+      I0 => \LED_BCD1__48_carry__0_n_4\,
+      I1 => \LED_BCD1__48_carry__0_n_5\,
+      I2 => \LED_BCD1__48_carry__0_n_6\,
+      I3 => \LED_BCD1__77_carry__0_i_9_n_0\,
+      I4 => \LED_BCD1__48_carry__0_n_7\,
+      I5 => \LED_BCD1__48_carry_n_4\,
+      O => \LED_BCD1__77_carry__0_i_10_n_0\
+    );
+\LED_BCD1__77_carry__0_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"656665666566AAAA"
     )
         port map (
       I0 => \LED_BCD1__48_carry__0_n_6\,
-      I1 => \LED_BCD1__77_carry__0_i_9_n_0\,
-      I2 => \LED_BCD1__48_carry__0_n_7\,
-      I3 => \LED_BCD1__48_carry_n_4\,
+      I1 => \LED_BCD1__48_carry__1_n_5\,
+      I2 => \LED_BCD1__77_carry_i_5_n_0\,
+      I3 => \LED_BCD1__48_carry__1_n_6\,
+      I4 => \LED_BCD1__48_carry__0_n_7\,
+      I5 => \LED_BCD1__48_carry_n_4\,
       O => \LED_BCD1__77_carry__0_i_2_n_0\
     );
 \LED_BCD1__77_carry__0_i_3\: unisim.vcomponents.LUT5
@@ -2401,68 +2280,65 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       I4 => \LED_BCD1__48_carry__0_n_6\,
       O => \LED_BCD1__77_carry__0_i_3_n_0\
     );
-\LED_BCD1__77_carry__0_i_4\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"999A"
-    )
-        port map (
-      I0 => \LED_BCD1__48_carry__0_n_6\,
-      I1 => \LED_BCD1__77_carry__0_i_9_n_0\,
-      I2 => \LED_BCD1__48_carry__0_n_7\,
-      I3 => \LED_BCD1__48_carry_n_4\,
-      O => \LED_BCD1__77_carry__0_i_4_n_0\
-    );
-\LED_BCD1__77_carry__0_i_5\: unisim.vcomponents.LUT2
+\LED_BCD1__77_carry__0_i_4\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"6"
     )
         port map (
       I0 => \LED_BCD1__77_carry__0_i_1_n_0\,
       I1 => \LED_BCD1__77_carry__0_i_3_n_0\,
-      O => \LED_BCD1__77_carry__0_i_5_n_0\
+      O => \LED_BCD1__77_carry__0_i_4_n_0\
     );
-\LED_BCD1__77_carry__0_i_6\: unisim.vcomponents.LUT6
+\LED_BCD1__77_carry__0_i_5\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"33336663CCCC333C"
+      INIT => X"9"
     )
         port map (
-      I0 => \LED_BCD1__48_carry__0_n_5\,
-      I1 => \LED_BCD1__48_carry__0_n_4\,
-      I2 => \LED_BCD1__48_carry_n_4\,
-      I3 => \LED_BCD1__48_carry__0_n_7\,
-      I4 => \LED_BCD1__77_carry__0_i_9_n_0\,
-      I5 => \LED_BCD1__48_carry__0_n_6\,
-      O => \LED_BCD1__77_carry__0_i_6_n_0\
+      I0 => \LED_BCD1__77_carry__0_i_10_n_0\,
+      I1 => \LED_BCD1__77_carry__0_i_2_n_0\,
+      O => \LED_BCD1__77_carry__0_i_5_n_0\
     );
-\LED_BCD1__77_carry__0_i_7\: unisim.vcomponents.LUT2
+\LED_BCD1__77_carry__0_i_6\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"6"
     )
         port map (
       I0 => \LED_BCD1__77_carry__0_i_3_n_0\,
       I1 => \LED_BCD1__77_carry_i_1_n_0\,
-      O => \LED_BCD1__77_carry__0_i_7_n_0\
+      O => \LED_BCD1__77_carry__0_i_6_n_0\
     );
-\LED_BCD1__77_carry__0_i_8\: unisim.vcomponents.LUT4
+\LED_BCD1__77_carry__0_i_7\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"3C39"
+      INIT => X"F20D0DF2"
     )
         port map (
-      I0 => \LED_BCD1__48_carry__0_n_7\,
-      I1 => \LED_BCD1__48_carry__0_n_6\,
-      I2 => \LED_BCD1__48_carry_n_4\,
-      I3 => \LED_BCD1__77_carry__0_i_9_n_0\,
+      I0 => \LED_BCD1__48_carry__1_n_6\,
+      I1 => \LED_BCD1__77_carry_i_5_n_0\,
+      I2 => \LED_BCD1__48_carry__1_n_5\,
+      I3 => \LED_BCD1__48_carry_n_4\,
+      I4 => \LED_BCD1__77_carry__0_i_2_n_0\,
+      O => \LED_BCD1__77_carry__0_i_7_n_0\
+    );
+\LED_BCD1__77_carry__0_i_8\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"E0000000"
+    )
+        port map (
+      I0 => \LED_BCD1__48_carry_n_4\,
+      I1 => \LED_BCD1__48_carry__0_n_7\,
+      I2 => \LED_BCD1__48_carry__0_n_5\,
+      I3 => \LED_BCD1__48_carry__0_n_6\,
+      I4 => \LED_BCD1__48_carry__0_n_4\,
       O => \LED_BCD1__77_carry__0_i_8_n_0\
     );
-\LED_BCD1__77_carry__0_i_9\: unisim.vcomponents.LUT4
+\LED_BCD1__77_carry__0_i_9\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"1555"
+      INIT => X"45"
     )
         port map (
       I0 => \LED_BCD1__48_carry__1_n_5\,
-      I1 => \LED_BCD1__48_carry__1_n_7\,
+      I1 => \LED_BCD1__77_carry_i_5_n_0\,
       I2 => \LED_BCD1__48_carry__1_n_6\,
-      I3 => \LED_BCD1__77_carry_i_5_n_0\,
       O => \LED_BCD1__77_carry__0_i_9_n_0\
     );
 \LED_BCD1__77_carry__1\: unisim.vcomponents.CARRY4
@@ -2486,35 +2362,35 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
     );
 \LED_BCD1__77_carry__1_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"7780"
+      INIT => X"6A2A"
     )
         port map (
-      I0 => \LED_BCD1__48_carry__1_n_7\,
-      I1 => \LED_BCD1__77_carry_i_5_n_0\,
-      I2 => \LED_BCD1__48_carry__1_n_5\,
-      I3 => \LED_BCD1__48_carry__1_n_6\,
+      I0 => \LED_BCD1__48_carry__1_n_6\,
+      I1 => \LED_BCD1__48_carry__1_n_7\,
+      I2 => \LED_BCD1__77_carry__0_i_8_n_0\,
+      I3 => \LED_BCD1__48_carry__1_n_5\,
       O => \LED_BCD1__77_carry__1_i_1_n_0\
     );
 \LED_BCD1__77_carry__1_i_2\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"7780"
+      INIT => X"6A2A"
     )
         port map (
-      I0 => \LED_BCD1__48_carry__1_n_7\,
-      I1 => \LED_BCD1__77_carry_i_5_n_0\,
-      I2 => \LED_BCD1__48_carry__1_n_5\,
-      I3 => \LED_BCD1__48_carry__1_n_6\,
+      I0 => \LED_BCD1__48_carry__1_n_6\,
+      I1 => \LED_BCD1__48_carry__1_n_7\,
+      I2 => \LED_BCD1__77_carry__0_i_8_n_0\,
+      I3 => \LED_BCD1__48_carry__1_n_5\,
       O => \LED_BCD1__77_carry__1_i_2_n_0\
     );
 \LED_BCD1__77_carry__1_i_3\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"26CC"
+      INIT => X"1FC0"
     )
         port map (
-      I0 => \LED_BCD1__48_carry__1_n_5\,
-      I1 => \LED_BCD1__48_carry__1_n_7\,
-      I2 => \LED_BCD1__48_carry__1_n_6\,
-      I3 => \LED_BCD1__77_carry_i_5_n_0\,
+      I0 => \LED_BCD1__48_carry__1_n_6\,
+      I1 => \LED_BCD1__48_carry__1_n_5\,
+      I2 => \LED_BCD1__77_carry__0_i_8_n_0\,
+      I3 => \LED_BCD1__48_carry__1_n_7\,
       O => \LED_BCD1__77_carry__1_i_3_n_0\
     );
 \LED_BCD1__77_carry__1_i_4\: unisim.vcomponents.LUT2
@@ -2523,33 +2399,19 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
     )
         port map (
       I0 => \LED_BCD1__77_carry__1_i_1_n_0\,
-      I1 => \LED_BCD1__77_carry__1_i_5_n_0\,
+      I1 => \LED_BCD1__77_carry__0_i_10_n_0\,
       O => \LED_BCD1__77_carry__1_i_4_n_0\
     );
-\LED_BCD1__77_carry__1_i_5\: unisim.vcomponents.LUT6
+\LED_BCD1__77_carry_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"5595559555955555"
-    )
-        port map (
-      I0 => \LED_BCD1__48_carry__0_n_4\,
-      I1 => \LED_BCD1__48_carry__0_n_5\,
-      I2 => \LED_BCD1__48_carry__0_n_6\,
-      I3 => \LED_BCD1__77_carry__0_i_9_n_0\,
-      I4 => \LED_BCD1__48_carry__0_n_7\,
-      I5 => \LED_BCD1__48_carry_n_4\,
-      O => \LED_BCD1__77_carry__1_i_5_n_0\
-    );
-\LED_BCD1__77_carry_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"AAAAAAAA56666666"
+      INIT => X"AAAA6566"
     )
         port map (
       I0 => \LED_BCD1__48_carry__0_n_7\,
       I1 => \LED_BCD1__48_carry__1_n_5\,
-      I2 => \LED_BCD1__48_carry__1_n_7\,
+      I2 => \LED_BCD1__77_carry_i_5_n_0\,
       I3 => \LED_BCD1__48_carry__1_n_6\,
-      I4 => \LED_BCD1__77_carry_i_5_n_0\,
-      I5 => \LED_BCD1__48_carry_n_4\,
+      I4 => \LED_BCD1__48_carry_n_4\,
       O => \LED_BCD1__77_carry_i_1_n_0\
     );
 \LED_BCD1__77_carry_i_2\: unisim.vcomponents.LUT2
@@ -2561,13 +2423,16 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       I1 => \LED_BCD1__48_carry_n_5\,
       O => \LED_BCD1__77_carry_i_2_n_0\
     );
-\LED_BCD1__77_carry_i_3\: unisim.vcomponents.LUT2
+\LED_BCD1__77_carry_i_3\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"6"
+      INIT => X"F20D0DF2"
     )
         port map (
-      I0 => \LED_BCD1__77_carry_i_6_n_0\,
-      I1 => \LED_BCD1__48_carry_n_6\,
+      I0 => \LED_BCD1__48_carry__1_n_6\,
+      I1 => \LED_BCD1__77_carry_i_5_n_0\,
+      I2 => \LED_BCD1__48_carry__1_n_5\,
+      I3 => \LED_BCD1__48_carry_n_4\,
+      I4 => \LED_BCD1__48_carry_n_6\,
       O => \LED_BCD1__77_carry_i_3_n_0\
     );
 \LED_BCD1__77_carry_i_4\: unisim.vcomponents.LUT2
@@ -2579,29 +2444,18 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       I1 => \LED_BCD1__48_carry_n_7\,
       O => \LED_BCD1__77_carry_i_4_n_0\
     );
-\LED_BCD1__77_carry_i_5\: unisim.vcomponents.LUT5
+\LED_BCD1__77_carry_i_5\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"E0000000"
+      INIT => X"7FFF7FFF7FFFFFFF"
     )
         port map (
-      I0 => \LED_BCD1__48_carry_n_4\,
-      I1 => \LED_BCD1__48_carry__0_n_7\,
-      I2 => \LED_BCD1__48_carry__0_n_5\,
-      I3 => \LED_BCD1__48_carry__0_n_6\,
-      I4 => \LED_BCD1__48_carry__0_n_4\,
+      I0 => \LED_BCD1__48_carry__1_n_7\,
+      I1 => \LED_BCD1__48_carry__0_n_4\,
+      I2 => \LED_BCD1__48_carry__0_n_6\,
+      I3 => \LED_BCD1__48_carry__0_n_5\,
+      I4 => \LED_BCD1__48_carry__0_n_7\,
+      I5 => \LED_BCD1__48_carry_n_4\,
       O => \LED_BCD1__77_carry_i_5_n_0\
-    );
-\LED_BCD1__77_carry_i_6\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"007FFF80"
-    )
-        port map (
-      I0 => \LED_BCD1__77_carry_i_5_n_0\,
-      I1 => \LED_BCD1__48_carry__1_n_6\,
-      I2 => \LED_BCD1__48_carry__1_n_7\,
-      I3 => \LED_BCD1__48_carry__1_n_5\,
-      I4 => \LED_BCD1__48_carry_n_4\,
-      O => \LED_BCD1__77_carry_i_6_n_0\
     );
 \LED_BCD1__91_carry\: unisim.vcomponents.CARRY4
      port map (
@@ -2648,7 +2502,7 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       INIT => X"6996695A"
     )
         port map (
-      I0 => \LED_BCD1__77_carry__1_i_5_n_0\,
+      I0 => \LED_BCD1__77_carry__0_i_10_n_0\,
       I1 => \LED_BCD1__77_carry__1_n_7\,
       I2 => \LED_BCD1__77_carry__1_n_5\,
       I3 => \LED_BCD1__77_carry__1_n_6\,
@@ -2693,13 +2547,16 @@ LED_BCD0_carry_i_3: unisim.vcomponents.LUT2
       I1 => \LED_BCD1__77_carry__1_n_5\,
       O => \LED_BCD1__91_carry_i_2_n_0\
     );
-\LED_BCD1__91_carry_i_3\: unisim.vcomponents.LUT2
+\LED_BCD1__91_carry_i_3\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"9"
+      INIT => X"0DF2F20D"
     )
         port map (
-      I0 => \LED_BCD1__77_carry_i_6_n_0\,
-      I1 => \LED_BCD1__77_carry__1_n_6\,
+      I0 => \LED_BCD1__48_carry__1_n_6\,
+      I1 => \LED_BCD1__77_carry_i_5_n_0\,
+      I2 => \LED_BCD1__48_carry__1_n_5\,
+      I3 => \LED_BCD1__48_carry_n_4\,
+      I4 => \LED_BCD1__77_carry__1_n_6\,
       O => \LED_BCD1__91_carry_i_3_n_0\
     );
 \LED_BCD1__91_carry_i_4\: unisim.vcomponents.LUT2
@@ -2727,13 +2584,13 @@ LED_BCD1_carry: unisim.vcomponents.CARRY4
       CO(1) => LED_BCD1_carry_n_2,
       CO(0) => LED_BCD1_carry_n_3,
       CYINIT => '0',
-      DI(3 downto 1) => displayed_number_reg(8 downto 6),
+      DI(3 downto 1) => displayed_number(8 downto 6),
       DI(0) => '0',
       O(3 downto 0) => NLW_LED_BCD1_carry_O_UNCONNECTED(3 downto 0),
       S(3) => LED_BCD1_carry_i_1_n_0,
       S(2) => LED_BCD1_carry_i_2_n_0,
       S(1) => LED_BCD1_carry_i_3_n_0,
-      S(0) => displayed_number_reg(5)
+      S(0) => displayed_number(5)
     );
 \LED_BCD1_carry__0\: unisim.vcomponents.CARRY4
      port map (
@@ -2743,7 +2600,7 @@ LED_BCD1_carry: unisim.vcomponents.CARRY4
       CO(1) => \LED_BCD1_carry__0_n_2\,
       CO(0) => \LED_BCD1_carry__0_n_3\,
       CYINIT => '0',
-      DI(3 downto 0) => displayed_number_reg(12 downto 9),
+      DI(3 downto 0) => displayed_number(12 downto 9),
       O(3 downto 0) => \NLW_LED_BCD1_carry__0_O_UNCONNECTED\(3 downto 0),
       S(3) => \LED_BCD1_carry__0_i_1_n_0\,
       S(2) => \LED_BCD1_carry__0_i_2_n_0\,
@@ -2755,8 +2612,8 @@ LED_BCD1_carry: unisim.vcomponents.CARRY4
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(12),
-      I1 => displayed_number_reg(6),
+      I0 => displayed_number(12),
+      I1 => displayed_number(6),
       O => \LED_BCD1_carry__0_i_1_n_0\
     );
 \LED_BCD1_carry__0_i_2\: unisim.vcomponents.LUT2
@@ -2764,8 +2621,8 @@ LED_BCD1_carry: unisim.vcomponents.CARRY4
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(11),
-      I1 => displayed_number_reg(5),
+      I0 => displayed_number(11),
+      I1 => displayed_number(5),
       O => \LED_BCD1_carry__0_i_2_n_0\
     );
 \LED_BCD1_carry__0_i_3\: unisim.vcomponents.LUT2
@@ -2773,8 +2630,8 @@ LED_BCD1_carry: unisim.vcomponents.CARRY4
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(10),
-      I1 => displayed_number_reg(4),
+      I0 => displayed_number(10),
+      I1 => displayed_number(4),
       O => \LED_BCD1_carry__0_i_3_n_0\
     );
 \LED_BCD1_carry__0_i_4\: unisim.vcomponents.LUT2
@@ -2782,8 +2639,8 @@ LED_BCD1_carry: unisim.vcomponents.CARRY4
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(9),
-      I1 => displayed_number_reg(3),
+      I0 => displayed_number(9),
+      I1 => displayed_number(3),
       O => \LED_BCD1_carry__0_i_4_n_0\
     );
 \LED_BCD1_carry__1\: unisim.vcomponents.CARRY4
@@ -2795,10 +2652,10 @@ LED_BCD1_carry: unisim.vcomponents.CARRY4
       CO(0) => \LED_BCD1_carry__1_n_3\,
       CYINIT => '0',
       DI(3) => '0',
-      DI(2 downto 0) => displayed_number_reg(15 downto 13),
+      DI(2 downto 0) => displayed_number(15 downto 13),
       O(3) => \LED_BCD1_carry__1_n_4\,
       O(2 downto 0) => \NLW_LED_BCD1_carry__1_O_UNCONNECTED\(2 downto 0),
-      S(3) => displayed_number_reg(10),
+      S(3) => displayed_number(10),
       S(2) => \LED_BCD1_carry__1_i_1_n_0\,
       S(1) => \LED_BCD1_carry__1_i_2_n_0\,
       S(0) => \LED_BCD1_carry__1_i_3_n_0\
@@ -2808,8 +2665,8 @@ LED_BCD1_carry: unisim.vcomponents.CARRY4
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(15),
-      I1 => displayed_number_reg(9),
+      I0 => displayed_number(15),
+      I1 => displayed_number(9),
       O => \LED_BCD1_carry__1_i_1_n_0\
     );
 \LED_BCD1_carry__1_i_2\: unisim.vcomponents.LUT2
@@ -2817,8 +2674,8 @@ LED_BCD1_carry: unisim.vcomponents.CARRY4
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(14),
-      I1 => displayed_number_reg(8),
+      I0 => displayed_number(14),
+      I1 => displayed_number(8),
       O => \LED_BCD1_carry__1_i_2_n_0\
     );
 \LED_BCD1_carry__1_i_3\: unisim.vcomponents.LUT2
@@ -2826,8 +2683,8 @@ LED_BCD1_carry: unisim.vcomponents.CARRY4
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(13),
-      I1 => displayed_number_reg(7),
+      I0 => displayed_number(13),
+      I1 => displayed_number(7),
       O => \LED_BCD1_carry__1_i_3_n_0\
     );
 \LED_BCD1_carry__2\: unisim.vcomponents.CARRY4
@@ -2843,7 +2700,7 @@ LED_BCD1_carry: unisim.vcomponents.CARRY4
       O(2) => \LED_BCD1_carry__2_n_5\,
       O(1) => \LED_BCD1_carry__2_n_6\,
       O(0) => \LED_BCD1_carry__2_n_7\,
-      S(3 downto 0) => displayed_number_reg(14 downto 11)
+      S(3 downto 0) => displayed_number(14 downto 11)
     );
 \LED_BCD1_carry__3\: unisim.vcomponents.CARRY4
      port map (
@@ -2856,15 +2713,15 @@ LED_BCD1_carry: unisim.vcomponents.CARRY4
       O(3 downto 1) => \NLW_LED_BCD1_carry__3_O_UNCONNECTED\(3 downto 1),
       O(0) => \LED_BCD1_carry__3_n_7\,
       S(3 downto 1) => B"001",
-      S(0) => displayed_number_reg(15)
+      S(0) => displayed_number(15)
     );
 LED_BCD1_carry_i_1: unisim.vcomponents.LUT2
     generic map(
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(8),
-      I1 => displayed_number_reg(2),
+      I0 => displayed_number(8),
+      I1 => displayed_number(2),
       O => LED_BCD1_carry_i_1_n_0
     );
 LED_BCD1_carry_i_2: unisim.vcomponents.LUT2
@@ -2872,8 +2729,8 @@ LED_BCD1_carry_i_2: unisim.vcomponents.LUT2
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(7),
-      I1 => displayed_number_reg(1),
+      I0 => displayed_number(7),
+      I1 => displayed_number(1),
       O => LED_BCD1_carry_i_2_n_0
     );
 LED_BCD1_carry_i_3: unisim.vcomponents.LUT2
@@ -2881,553 +2738,297 @@ LED_BCD1_carry_i_3: unisim.vcomponents.LUT2
       INIT => X"6"
     )
         port map (
-      I0 => displayed_number_reg(6),
-      I1 => displayed_number_reg(0),
+      I0 => displayed_number(6),
+      I1 => displayed_number(0),
       O => LED_BCD1_carry_i_3_n_0
     );
-\displayed_number[0]_i_1\: unisim.vcomponents.LUT5
+\lcd_out[0]_INST_0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000040"
+      INIT => X"11101110E1E11110"
     )
         port map (
-      I0 => \displayed_number[0]_i_3_n_0\,
-      I1 => \displayed_number[0]_i_4_n_0\,
-      I2 => \displayed_number[0]_i_5_n_0\,
-      I3 => \displayed_number[0]_i_6_n_0\,
-      I4 => \displayed_number[0]_i_7_n_0\,
-      O => sel
-    );
-\displayed_number[0]_i_3\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFFD"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => one_second_counter_reg(19),
-      I2 => one_second_counter_reg(25),
-      I3 => one_second_counter_reg(17),
-      O => \displayed_number[0]_i_3_n_0\
-    );
-\displayed_number[0]_i_4\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"00008000"
-    )
-        port map (
-      I0 => one_second_counter_reg(6),
-      I1 => one_second_counter_reg(7),
-      I2 => one_second_counter_reg(4),
-      I3 => one_second_counter_reg(5),
-      I4 => \displayed_number[0]_i_9_n_0\,
-      O => \displayed_number[0]_i_4_n_0\
-    );
-\displayed_number[0]_i_5\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"80000000"
-    )
-        port map (
-      I0 => one_second_counter_reg(21),
-      I1 => one_second_counter_reg(20),
-      I2 => one_second_counter_reg(22),
-      I3 => one_second_counter_reg(23),
-      I4 => one_second_counter_reg(24),
-      O => \displayed_number[0]_i_5_n_0\
-    );
-\displayed_number[0]_i_6\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"FFFFFFFE"
-    )
-        port map (
-      I0 => one_second_counter_reg(11),
-      I1 => one_second_counter_reg(12),
-      I2 => one_second_counter_reg(9),
-      I3 => one_second_counter_reg(8),
-      I4 => one_second_counter_reg(10),
-      O => \displayed_number[0]_i_6_n_0\
-    );
-\displayed_number[0]_i_7\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"7FFFFFFF"
-    )
-        port map (
-      I0 => one_second_counter_reg(15),
-      I1 => one_second_counter_reg(16),
-      I2 => one_second_counter_reg(14),
-      I3 => one_second_counter_reg(13),
-      I4 => one_second_counter_reg(18),
-      O => \displayed_number[0]_i_7_n_0\
-    );
-\displayed_number[0]_i_8\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => displayed_number_reg(0),
-      O => \displayed_number[0]_i_8_n_0\
-    );
-\displayed_number[0]_i_9\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"7FFF"
-    )
-        port map (
-      I0 => one_second_counter_reg(0),
-      I1 => one_second_counter_reg(1),
-      I2 => one_second_counter_reg(3),
-      I3 => one_second_counter_reg(2),
-      O => \displayed_number[0]_i_9_n_0\
-    );
-\displayed_number_reg[0]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => sel,
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \displayed_number_reg[0]_i_2_n_7\,
-      Q => displayed_number_reg(0)
-    );
-\displayed_number_reg[0]_i_2\: unisim.vcomponents.CARRY4
-     port map (
-      CI => '0',
-      CO(3) => \displayed_number_reg[0]_i_2_n_0\,
-      CO(2) => \displayed_number_reg[0]_i_2_n_1\,
-      CO(1) => \displayed_number_reg[0]_i_2_n_2\,
-      CO(0) => \displayed_number_reg[0]_i_2_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => B"0001",
-      O(3) => \displayed_number_reg[0]_i_2_n_4\,
-      O(2) => \displayed_number_reg[0]_i_2_n_5\,
-      O(1) => \displayed_number_reg[0]_i_2_n_6\,
-      O(0) => \displayed_number_reg[0]_i_2_n_7\,
-      S(3 downto 1) => displayed_number_reg(3 downto 1),
-      S(0) => \displayed_number[0]_i_8_n_0\
-    );
-\displayed_number_reg[10]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => sel,
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \displayed_number_reg[8]_i_1_n_5\,
-      Q => displayed_number_reg(10)
-    );
-\displayed_number_reg[11]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => sel,
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \displayed_number_reg[8]_i_1_n_4\,
-      Q => displayed_number_reg(11)
-    );
-\displayed_number_reg[12]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => sel,
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \displayed_number_reg[12]_i_1_n_7\,
-      Q => displayed_number_reg(12)
-    );
-\displayed_number_reg[12]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \displayed_number_reg[8]_i_1_n_0\,
-      CO(3) => \NLW_displayed_number_reg[12]_i_1_CO_UNCONNECTED\(3),
-      CO(2) => \displayed_number_reg[12]_i_1_n_1\,
-      CO(1) => \displayed_number_reg[12]_i_1_n_2\,
-      CO(0) => \displayed_number_reg[12]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => B"0000",
-      O(3) => \displayed_number_reg[12]_i_1_n_4\,
-      O(2) => \displayed_number_reg[12]_i_1_n_5\,
-      O(1) => \displayed_number_reg[12]_i_1_n_6\,
-      O(0) => \displayed_number_reg[12]_i_1_n_7\,
-      S(3 downto 0) => displayed_number_reg(15 downto 12)
-    );
-\displayed_number_reg[13]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => sel,
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \displayed_number_reg[12]_i_1_n_6\,
-      Q => displayed_number_reg(13)
-    );
-\displayed_number_reg[14]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => sel,
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \displayed_number_reg[12]_i_1_n_5\,
-      Q => displayed_number_reg(14)
-    );
-\displayed_number_reg[15]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => sel,
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \displayed_number_reg[12]_i_1_n_4\,
-      Q => displayed_number_reg(15)
-    );
-\displayed_number_reg[1]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => sel,
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \displayed_number_reg[0]_i_2_n_6\,
-      Q => displayed_number_reg(1)
-    );
-\displayed_number_reg[2]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => sel,
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \displayed_number_reg[0]_i_2_n_5\,
-      Q => displayed_number_reg(2)
-    );
-\displayed_number_reg[3]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => sel,
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \displayed_number_reg[0]_i_2_n_4\,
-      Q => displayed_number_reg(3)
-    );
-\displayed_number_reg[4]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => sel,
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \displayed_number_reg[4]_i_1_n_7\,
-      Q => displayed_number_reg(4)
-    );
-\displayed_number_reg[4]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \displayed_number_reg[0]_i_2_n_0\,
-      CO(3) => \displayed_number_reg[4]_i_1_n_0\,
-      CO(2) => \displayed_number_reg[4]_i_1_n_1\,
-      CO(1) => \displayed_number_reg[4]_i_1_n_2\,
-      CO(0) => \displayed_number_reg[4]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => B"0000",
-      O(3) => \displayed_number_reg[4]_i_1_n_4\,
-      O(2) => \displayed_number_reg[4]_i_1_n_5\,
-      O(1) => \displayed_number_reg[4]_i_1_n_6\,
-      O(0) => \displayed_number_reg[4]_i_1_n_7\,
-      S(3 downto 0) => displayed_number_reg(7 downto 4)
-    );
-\displayed_number_reg[5]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => sel,
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \displayed_number_reg[4]_i_1_n_6\,
-      Q => displayed_number_reg(5)
-    );
-\displayed_number_reg[6]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => sel,
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \displayed_number_reg[4]_i_1_n_5\,
-      Q => displayed_number_reg(6)
-    );
-\displayed_number_reg[7]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => sel,
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \displayed_number_reg[4]_i_1_n_4\,
-      Q => displayed_number_reg(7)
-    );
-\displayed_number_reg[8]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => sel,
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \displayed_number_reg[8]_i_1_n_7\,
-      Q => displayed_number_reg(8)
-    );
-\displayed_number_reg[8]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \displayed_number_reg[4]_i_1_n_0\,
-      CO(3) => \displayed_number_reg[8]_i_1_n_0\,
-      CO(2) => \displayed_number_reg[8]_i_1_n_1\,
-      CO(1) => \displayed_number_reg[8]_i_1_n_2\,
-      CO(0) => \displayed_number_reg[8]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => B"0000",
-      O(3) => \displayed_number_reg[8]_i_1_n_4\,
-      O(2) => \displayed_number_reg[8]_i_1_n_5\,
-      O(1) => \displayed_number_reg[8]_i_1_n_6\,
-      O(0) => \displayed_number_reg[8]_i_1_n_7\,
-      S(3 downto 0) => displayed_number_reg(11 downto 8)
-    );
-\displayed_number_reg[9]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => sel,
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \displayed_number_reg[8]_i_1_n_6\,
-      Q => displayed_number_reg(9)
-    );
-\lcd_out[0]_INST_0\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"0CE3"
-    )
-        port map (
-      I0 => \lcd_out[6]_INST_0_i_2_n_0\,
-      I1 => \lcd_out[6]_INST_0_i_1_n_0\,
-      I2 => \lcd_out[6]_INST_0_i_4_n_0\,
-      I3 => \lcd_out[6]_INST_0_i_3_n_0\,
+      I0 => \lcd_out[6]_INST_0_i_5_n_0\,
+      I1 => \lcd_out[6]_INST_0_i_6_n_0\,
+      I2 => \lcd_out[6]_INST_0_i_1_n_0\,
+      I3 => \lcd_out[6]_INST_0_i_4_n_0\,
+      I4 => \lcd_out[6]_INST_0_i_3_n_0\,
+      I5 => \lcd_out[6]_INST_0_i_2_n_0\,
       O => lcd_out(0)
     );
-\lcd_out[1]_INST_0\: unisim.vcomponents.LUT4
+\lcd_out[1]_INST_0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BAFB"
+      INIT => X"EFEEEEEEFFFFEFEE"
     )
         port map (
-      I0 => \lcd_out[6]_INST_0_i_3_n_0\,
-      I1 => \lcd_out[6]_INST_0_i_4_n_0\,
+      I0 => \lcd_out[6]_INST_0_i_6_n_0\,
+      I1 => \lcd_out[6]_INST_0_i_5_n_0\,
       I2 => \lcd_out[6]_INST_0_i_2_n_0\,
-      I3 => \lcd_out[6]_INST_0_i_1_n_0\,
+      I3 => \lcd_out[6]_INST_0_i_3_n_0\,
+      I4 => \lcd_out[6]_INST_0_i_4_n_0\,
+      I5 => \lcd_out[6]_INST_0_i_1_n_0\,
       O => lcd_out(1)
     );
-\lcd_out[2]_INST_0\: unisim.vcomponents.LUT4
+\lcd_out[2]_INST_0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FBA8"
-    )
-        port map (
-      I0 => \lcd_out[6]_INST_0_i_2_n_0\,
-      I1 => \lcd_out[6]_INST_0_i_1_n_0\,
-      I2 => \lcd_out[6]_INST_0_i_4_n_0\,
-      I3 => \lcd_out[6]_INST_0_i_3_n_0\,
-      O => lcd_out(2)
-    );
-\lcd_out[3]_INST_0\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FEEB"
-    )
-        port map (
-      I0 => \lcd_out[6]_INST_0_i_3_n_0\,
-      I1 => \lcd_out[6]_INST_0_i_1_n_0\,
-      I2 => \lcd_out[6]_INST_0_i_2_n_0\,
-      I3 => \lcd_out[6]_INST_0_i_4_n_0\,
-      O => lcd_out(3)
-    );
-\lcd_out[4]_INST_0\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"F7FF"
+      INIT => X"FFBFFFBFFFBFAA8A"
     )
         port map (
       I0 => \lcd_out[6]_INST_0_i_4_n_0\,
       I1 => \lcd_out[6]_INST_0_i_1_n_0\,
       I2 => \lcd_out[6]_INST_0_i_3_n_0\,
       I3 => \lcd_out[6]_INST_0_i_2_n_0\,
-      O => lcd_out(4)
+      I4 => \lcd_out[6]_INST_0_i_5_n_0\,
+      I5 => \lcd_out[6]_INST_0_i_6_n_0\,
+      O => lcd_out(2)
     );
-\lcd_out[5]_INST_0\: unisim.vcomponents.LUT4
+\lcd_out[3]_INST_0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFBE"
+      INIT => X"FFFFFEFFFEFEEFFE"
     )
         port map (
-      I0 => \lcd_out[6]_INST_0_i_1_n_0\,
-      I1 => \lcd_out[6]_INST_0_i_4_n_0\,
-      I2 => \lcd_out[6]_INST_0_i_2_n_0\,
+      I0 => \lcd_out[6]_INST_0_i_5_n_0\,
+      I1 => \lcd_out[6]_INST_0_i_6_n_0\,
+      I2 => \lcd_out[6]_INST_0_i_4_n_0\,
       I3 => \lcd_out[6]_INST_0_i_3_n_0\,
+      I4 => \lcd_out[6]_INST_0_i_2_n_0\,
+      I5 => \lcd_out[6]_INST_0_i_1_n_0\,
+      O => lcd_out(3)
+    );
+\lcd_out[4]_INST_0\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"EFEFFFEFFFFFFFFF"
+    )
+        port map (
+      I0 => \lcd_out[6]_INST_0_i_6_n_0\,
+      I1 => \lcd_out[6]_INST_0_i_5_n_0\,
+      I2 => \lcd_out[6]_INST_0_i_4_n_0\,
+      I3 => \lcd_out[6]_INST_0_i_3_n_0\,
+      I4 => \lcd_out[6]_INST_0_i_2_n_0\,
+      I5 => \lcd_out[6]_INST_0_i_1_n_0\,
+      O => lcd_out(4)
+    );
+\lcd_out[5]_INST_0\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFEFEFFEEF"
+    )
+        port map (
+      I0 => \lcd_out[6]_INST_0_i_6_n_0\,
+      I1 => \lcd_out[6]_INST_0_i_5_n_0\,
+      I2 => \lcd_out[6]_INST_0_i_4_n_0\,
+      I3 => \lcd_out[6]_INST_0_i_3_n_0\,
+      I4 => \lcd_out[6]_INST_0_i_2_n_0\,
+      I5 => \lcd_out[6]_INST_0_i_1_n_0\,
       O => lcd_out(5)
     );
-\lcd_out[6]_INST_0\: unisim.vcomponents.LUT4
+\lcd_out[6]_INST_0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFF9"
+      INIT => X"FFFFFFFFFFFFEFDF"
     )
         port map (
       I0 => \lcd_out[6]_INST_0_i_1_n_0\,
       I1 => \lcd_out[6]_INST_0_i_2_n_0\,
       I2 => \lcd_out[6]_INST_0_i_3_n_0\,
       I3 => \lcd_out[6]_INST_0_i_4_n_0\,
+      I4 => \lcd_out[6]_INST_0_i_5_n_0\,
+      I5 => \lcd_out[6]_INST_0_i_6_n_0\,
       O => lcd_out(6)
     );
 \lcd_out[6]_INST_0_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000000A2AAA20A"
+      INIT => X"2202020202222222"
     )
         port map (
-      I0 => \lcd_out[6]_INST_0_i_5_n_0\,
-      I1 => \lcd_out[6]_INST_0_i_6_n_0\,
-      I2 => LED_activating_counter(0),
-      I3 => LED_activating_counter(1),
-      I4 => \lcd_out[6]_INST_0_i_7_n_0\,
-      I5 => \lcd_out[6]_INST_0_i_8_n_0\,
+      I0 => \lcd_out[6]_INST_0_i_7_n_0\,
+      I1 => \lcd_out[6]_INST_0_i_8_n_0\,
+      I2 => \lcd_out[6]_INST_0_i_9_n_0\,
+      I3 => \lcd_out[6]_INST_0_i_10_n_0\,
+      I4 => \lcd_out[6]_INST_0_i_11_n_0\,
+      I5 => \LED_BCD0_carry__1_n_5\,
       O => \lcd_out[6]_INST_0_i_1_n_0\
     );
-\lcd_out[6]_INST_0_i_10\: unisim.vcomponents.LUT5
+\lcd_out[6]_INST_0_i_10\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => \LED_BCD0_carry__1_n_7\,
+      I1 => \LED_BCD0_carry__1_n_6\,
+      O => \lcd_out[6]_INST_0_i_10_n_0\
+    );
+\lcd_out[6]_INST_0_i_11\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"4554545444545454"
+    )
+        port map (
+      I0 => \LED_BCD0__14_carry__0_n_0\,
+      I1 => \lcd_out[6]_INST_0_i_24_n_0\,
+      I2 => \LED_BCD1__48_carry__1_n_6\,
+      I3 => \LED_BCD1__48_carry__1_n_7\,
+      I4 => \LED_BCD1__77_carry__0_i_8_n_0\,
+      I5 => \LED_BCD1__48_carry__1_n_5\,
+      O => \lcd_out[6]_INST_0_i_11_n_0\
+    );
+\lcd_out[6]_INST_0_i_12\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"04"
+    )
+        port map (
+      I0 => LED_activating_counter(0),
+      I1 => LED_activating_counter(1),
+      I2 => \lcd_out[6]_INST_0_i_18_n_0\,
+      O => \lcd_out[6]_INST_0_i_12_n_0\
+    );
+\lcd_out[6]_INST_0_i_13\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"8A88AAAA20220000"
+    )
+        port map (
+      I0 => \lcd_out[6]_INST_0_i_25_n_0\,
+      I1 => \LED_BCD0__107_carry__2_n_3\,
+      I2 => displayed_number(15),
+      I3 => \LED_BCD0__82_carry__1_n_7\,
+      I4 => \LED_BCD0__29_carry__1_n_4\,
+      I5 => \LED_BCD0__29_carry__2_n_7\,
+      O => \lcd_out[6]_INST_0_i_13_n_0\
+    );
+\lcd_out[6]_INST_0_i_14\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"6C7EEDED484881C9"
+    )
+        port map (
+      I0 => \lcd_out[6]_INST_0_i_22_n_0\,
+      I1 => \lcd_out[6]_INST_0_i_26_n_0\,
+      I2 => \lcd_out[6]_INST_0_i_27_n_0\,
+      I3 => LED_BCD1(1),
+      I4 => \lcd_out[6]_INST_0_i_19_n_0\,
+      I5 => \lcd_out[6]_INST_0_i_18_n_0\,
+      O => \lcd_out[6]_INST_0_i_14_n_0\
+    );
+\lcd_out[6]_INST_0_i_15\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"F0060006"
     )
         port map (
       I0 => \LED_BCD0__29_carry__1_n_4\,
-      I1 => \lcd_out[6]_INST_0_i_22_n_0\,
+      I1 => \lcd_out[6]_INST_0_i_28_n_0\,
       I2 => LED_activating_counter(1),
       I3 => LED_activating_counter(0),
       I4 => \LED_BCD1__48_carry_n_7\,
-      O => \lcd_out[6]_INST_0_i_10_n_0\
-    );
-\lcd_out[6]_INST_0_i_11\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"4555455554444444"
-    )
-        port map (
-      I0 => \LED_BCD0__14_carry__0_n_0\,
-      I1 => \lcd_out[6]_INST_0_i_23_n_0\,
-      I2 => \LED_BCD1__48_carry__1_n_7\,
-      I3 => \LED_BCD1__77_carry_i_5_n_0\,
-      I4 => \LED_BCD1__48_carry__1_n_5\,
-      I5 => \LED_BCD1__48_carry__1_n_6\,
-      O => \lcd_out[6]_INST_0_i_11_n_0\
-    );
-\lcd_out[6]_INST_0_i_12\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"A0000AAA2AA88002"
-    )
-        port map (
-      I0 => \lcd_out[6]_INST_0_i_24_n_0\,
-      I1 => LED_BCD1(1),
-      I2 => \lcd_out[6]_INST_0_i_18_n_0\,
-      I3 => \lcd_out[6]_INST_0_i_16_n_0\,
-      I4 => \lcd_out[6]_INST_0_i_25_n_0\,
-      I5 => \lcd_out[6]_INST_0_i_9_n_0\,
-      O => \lcd_out[6]_INST_0_i_12_n_0\
-    );
-\lcd_out[6]_INST_0_i_13\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"000000005555C3CC"
-    )
-        port map (
-      I0 => \lcd_out[6]_INST_0_i_26_n_0\,
-      I1 => \LED_BCD0__29_carry__2_n_5\,
-      I2 => \lcd_out[6]_INST_0_i_19_n_0\,
-      I3 => \LED_BCD0__29_carry__2_n_6\,
-      I4 => LED_activating_counter(1),
-      I5 => LED_activating_counter(0),
-      O => \lcd_out[6]_INST_0_i_13_n_0\
-    );
-\lcd_out[6]_INST_0_i_14\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => LED_activating_counter(0),
-      I1 => LED_activating_counter(1),
-      O => \lcd_out[6]_INST_0_i_14_n_0\
-    );
-\lcd_out[6]_INST_0_i_15\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"00000000FB000000"
-    )
-        port map (
-      I0 => \LED_BCD1__77_carry__1_i_1_n_0\,
-      I1 => \LED_BCD0_carry__1_n_5\,
-      I2 => \LED_BCD0_carry__1_n_0\,
-      I3 => \LED_BCD0_carry__1_n_6\,
-      I4 => \LED_BCD0_carry__1_n_7\,
-      I5 => \LED_BCD0__14_carry__0_n_0\,
       O => \lcd_out[6]_INST_0_i_15_n_0\
     );
-\lcd_out[6]_INST_0_i_16\: unisim.vcomponents.LUT6
+\lcd_out[6]_INST_0_i_16\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"72DE569F9DA98DA9"
+      INIT => X"8"
     )
         port map (
-      I0 => \LED_BCD1__91_carry__0_n_6\,
-      I1 => \LED_BCD1__91_carry__0_n_7\,
-      I2 => \LED_BCD1__91_carry__0_n_5\,
-      I3 => \LED_BCD1__91_carry_n_5\,
-      I4 => \LED_BCD1__91_carry_n_6\,
-      I5 => \LED_BCD1__91_carry_n_4\,
+      I0 => LED_activating_counter(1),
+      I1 => LED_activating_counter(0),
       O => \lcd_out[6]_INST_0_i_16_n_0\
     );
 \lcd_out[6]_INST_0_i_17\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFF00007800"
+      INIT => X"ABB52A52AA9C6966"
     )
         port map (
-      I0 => \LED_BCD0_carry__1_n_7\,
-      I1 => \lcd_out[6]_INST_0_i_11_n_0\,
-      I2 => \LED_BCD0_carry__1_n_6\,
-      I3 => LED_activating_counter(0),
-      I4 => LED_activating_counter(1),
-      I5 => \lcd_out[6]_INST_0_i_27_n_0\,
+      I0 => \LED_BCD1__91_carry_n_5\,
+      I1 => \LED_BCD1__91_carry_n_6\,
+      I2 => \LED_BCD1__91_carry_n_4\,
+      I3 => \LED_BCD1__91_carry__0_n_6\,
+      I4 => \LED_BCD1__91_carry__0_n_7\,
+      I5 => \LED_BCD1__91_carry__0_n_5\,
       O => \lcd_out[6]_INST_0_i_17_n_0\
     );
 \lcd_out[6]_INST_0_i_18\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"F0F1A5A5A5A5A5A5"
+      INIT => X"0BDCF03BF3BDFC03"
+    )
+        port map (
+      I0 => \LED_BCD1__91_carry_n_6\,
+      I1 => \LED_BCD1__91_carry__0_n_5\,
+      I2 => \LED_BCD1__91_carry__0_n_7\,
+      I3 => \LED_BCD1__91_carry__0_n_6\,
+      I4 => \LED_BCD1__91_carry_n_4\,
+      I5 => \LED_BCD1__91_carry_n_5\,
+      O => \lcd_out[6]_INST_0_i_18_n_0\
+    );
+\lcd_out[6]_INST_0_i_19\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"CCCCCCCCCD333333"
+    )
+        port map (
+      I0 => \LED_BCD1__91_carry_n_5\,
+      I1 => \LED_BCD1__91_carry_n_6\,
+      I2 => \LED_BCD1__91_carry_n_4\,
+      I3 => \LED_BCD1__91_carry__0_n_6\,
+      I4 => \LED_BCD1__91_carry__0_n_7\,
+      I5 => \LED_BCD1__91_carry__0_n_5\,
+      O => \lcd_out[6]_INST_0_i_19_n_0\
+    );
+\lcd_out[6]_INST_0_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFAEEAEAEA"
+    )
+        port map (
+      I0 => \lcd_out[6]_INST_0_i_12_n_0\,
+      I1 => \lcd_out[6]_INST_0_i_9_n_0\,
+      I2 => \LED_BCD0_carry__1_n_6\,
+      I3 => \lcd_out[6]_INST_0_i_11_n_0\,
+      I4 => \LED_BCD0_carry__1_n_7\,
+      I5 => \lcd_out[6]_INST_0_i_13_n_0\,
+      O => \lcd_out[6]_INST_0_i_2_n_0\
+    );
+\lcd_out[6]_INST_0_i_20\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"E52AC13C29DA301F"
     )
         port map (
       I0 => \LED_BCD1__91_carry__0_n_5\,
-      I1 => \LED_BCD1__91_carry_n_5\,
-      I2 => \LED_BCD1__91_carry_n_6\,
+      I1 => \LED_BCD1__91_carry__0_n_7\,
+      I2 => \LED_BCD1__91_carry__0_n_6\,
       I3 => \LED_BCD1__91_carry_n_4\,
-      I4 => \LED_BCD1__91_carry__0_n_6\,
-      I5 => \LED_BCD1__91_carry__0_n_7\,
-      O => \lcd_out[6]_INST_0_i_18_n_0\
+      I4 => \LED_BCD1__91_carry_n_6\,
+      I5 => \LED_BCD1__91_carry_n_5\,
+      O => \lcd_out[6]_INST_0_i_20_n_0\
     );
-\lcd_out[6]_INST_0_i_19\: unisim.vcomponents.LUT5
+\lcd_out[6]_INST_0_i_21\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0000FF9A0000009A"
+    )
+        port map (
+      I0 => \LED_BCD0__29_carry__2_n_5\,
+      I1 => \lcd_out[6]_INST_0_i_23_n_0\,
+      I2 => \LED_BCD0__29_carry__2_n_6\,
+      I3 => LED_activating_counter(1),
+      I4 => LED_activating_counter(0),
+      I5 => \lcd_out[6]_INST_0_i_29_n_0\,
+      O => \lcd_out[6]_INST_0_i_21_n_0\
+    );
+\lcd_out[6]_INST_0_i_22\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"011F80F800FA0F00"
+    )
+        port map (
+      I0 => \LED_BCD1__91_carry_n_5\,
+      I1 => \LED_BCD1__91_carry_n_6\,
+      I2 => \LED_BCD1__91_carry_n_4\,
+      I3 => \LED_BCD1__91_carry__0_n_6\,
+      I4 => \LED_BCD1__91_carry__0_n_7\,
+      I5 => \LED_BCD1__91_carry__0_n_5\,
+      O => \lcd_out[6]_INST_0_i_22_n_0\
+    );
+\lcd_out[6]_INST_0_i_23\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"BAFFFFFF"
     )
         port map (
       I0 => \LED_BCD0__107_carry__2_n_3\,
-      I1 => displayed_number_reg(15),
+      I1 => displayed_number(15),
       I2 => \LED_BCD0__82_carry__1_n_7\,
       I3 => \LED_BCD0__29_carry__1_n_4\,
       I4 => \LED_BCD0__29_carry__2_n_7\,
-      O => \lcd_out[6]_INST_0_i_19_n_0\
+      O => \lcd_out[6]_INST_0_i_23_n_0\
     );
-\lcd_out[6]_INST_0_i_2\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"3323302330233323"
-    )
-        port map (
-      I0 => \lcd_out[6]_INST_0_i_9_n_0\,
-      I1 => \lcd_out[6]_INST_0_i_10_n_0\,
-      I2 => LED_activating_counter(1),
-      I3 => LED_activating_counter(0),
-      I4 => \lcd_out[6]_INST_0_i_11_n_0\,
-      I5 => \LED_BCD0_carry__1_n_7\,
-      O => \lcd_out[6]_INST_0_i_2_n_0\
-    );
-\lcd_out[6]_INST_0_i_20\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"C3C2C6C6C6C6C6C6"
-    )
-        port map (
-      I0 => \LED_BCD1__91_carry__0_n_5\,
-      I1 => \LED_BCD1__91_carry_n_5\,
-      I2 => \LED_BCD1__91_carry_n_6\,
-      I3 => \LED_BCD1__91_carry_n_4\,
-      I4 => \LED_BCD1__91_carry__0_n_6\,
-      I5 => \LED_BCD1__91_carry__0_n_7\,
-      O => \lcd_out[6]_INST_0_i_20_n_0\
-    );
-\lcd_out[6]_INST_0_i_21\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"3FC393C4C46E3BC4"
-    )
-        port map (
-      I0 => \LED_BCD1__91_carry__0_n_5\,
-      I1 => \LED_BCD1__91_carry_n_5\,
-      I2 => \LED_BCD1__91_carry_n_6\,
-      I3 => \LED_BCD1__91_carry_n_4\,
-      I4 => \LED_BCD1__91_carry__0_n_6\,
-      I5 => \LED_BCD1__91_carry__0_n_7\,
-      O => \lcd_out[6]_INST_0_i_21_n_0\
-    );
-\lcd_out[6]_INST_0_i_22\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"45"
-    )
-        port map (
-      I0 => \LED_BCD0__107_carry__2_n_3\,
-      I1 => displayed_number_reg(15),
-      I2 => \LED_BCD0__82_carry__1_n_7\,
-      O => \lcd_out[6]_INST_0_i_22_n_0\
-    );
-\lcd_out[6]_INST_0_i_23\: unisim.vcomponents.LUT4
+\lcd_out[6]_INST_0_i_24\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"F38F"
     )
@@ -3436,796 +3037,149 @@ LED_BCD1_carry_i_3: unisim.vcomponents.LUT2
       I1 => \LED_BCD0_carry__1_n_6\,
       I2 => \LED_BCD0_carry__1_n_0\,
       I3 => \LED_BCD0_carry__1_n_5\,
-      O => \lcd_out[6]_INST_0_i_23_n_0\
-    );
-\lcd_out[6]_INST_0_i_24\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"8"
-    )
-        port map (
-      I0 => LED_activating_counter(1),
-      I1 => LED_activating_counter(0),
       O => \lcd_out[6]_INST_0_i_24_n_0\
     );
-\lcd_out[6]_INST_0_i_25\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"F1F07069A7C61A3C"
-    )
-        port map (
-      I0 => \LED_BCD1__91_carry_n_4\,
-      I1 => \LED_BCD1__91_carry_n_6\,
-      I2 => \LED_BCD1__91_carry_n_5\,
-      I3 => \LED_BCD1__91_carry__0_n_5\,
-      I4 => \LED_BCD1__91_carry__0_n_7\,
-      I5 => \LED_BCD1__91_carry__0_n_6\,
-      O => \lcd_out[6]_INST_0_i_25_n_0\
-    );
-\lcd_out[6]_INST_0_i_26\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"9D9D9DDDDFDFDF57"
-    )
-        port map (
-      I0 => \LED_BCD1__91_carry__0_n_6\,
-      I1 => \LED_BCD1__91_carry__0_n_7\,
-      I2 => \LED_BCD1__91_carry__0_n_5\,
-      I3 => \LED_BCD1__91_carry_n_5\,
-      I4 => \LED_BCD1__91_carry_n_6\,
-      I5 => \LED_BCD1__91_carry_n_4\,
-      O => \lcd_out[6]_INST_0_i_26_n_0\
-    );
-\lcd_out[6]_INST_0_i_27\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"8A88AAAA20220000"
-    )
-        port map (
-      I0 => \lcd_out[6]_INST_0_i_28_n_0\,
-      I1 => \LED_BCD0__107_carry__2_n_3\,
-      I2 => displayed_number_reg(15),
-      I3 => \LED_BCD0__82_carry__1_n_7\,
-      I4 => \LED_BCD0__29_carry__1_n_4\,
-      I5 => \LED_BCD0__29_carry__2_n_7\,
-      O => \lcd_out[6]_INST_0_i_27_n_0\
-    );
-\lcd_out[6]_INST_0_i_28\: unisim.vcomponents.LUT2
+\lcd_out[6]_INST_0_i_25\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"1"
     )
         port map (
       I0 => LED_activating_counter(1),
       I1 => LED_activating_counter(0),
-      O => \lcd_out[6]_INST_0_i_28_n_0\
+      O => \lcd_out[6]_INST_0_i_25_n_0\
     );
-\lcd_out[6]_INST_0_i_3\: unisim.vcomponents.LUT6
+\lcd_out[6]_INST_0_i_26\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"EEFEFEFEFEEEEEEE"
+      INIT => X"C7202DCA38DF301F"
     )
         port map (
-      I0 => \lcd_out[6]_INST_0_i_12_n_0\,
-      I1 => \lcd_out[6]_INST_0_i_13_n_0\,
-      I2 => \lcd_out[6]_INST_0_i_14_n_0\,
-      I3 => \lcd_out[6]_INST_0_i_15_n_0\,
-      I4 => \LED_BCD0_carry__1_n_5\,
-      I5 => \LED_BCD0_carry__1_n_0\,
+      I0 => \LED_BCD1__91_carry__0_n_5\,
+      I1 => \LED_BCD1__91_carry__0_n_7\,
+      I2 => \LED_BCD1__91_carry__0_n_6\,
+      I3 => \LED_BCD1__91_carry_n_4\,
+      I4 => \LED_BCD1__91_carry_n_6\,
+      I5 => \LED_BCD1__91_carry_n_5\,
+      O => \lcd_out[6]_INST_0_i_26_n_0\
+    );
+\lcd_out[6]_INST_0_i_27\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFF15150000EAAA"
+    )
+        port map (
+      I0 => \LED_BCD1__91_carry__0_n_5\,
+      I1 => \LED_BCD1__91_carry__0_n_7\,
+      I2 => \LED_BCD1__91_carry__0_n_6\,
+      I3 => \LED_BCD1__91_carry_n_4\,
+      I4 => \LED_BCD1__91_carry_n_6\,
+      I5 => \LED_BCD1__91_carry_n_5\,
+      O => \lcd_out[6]_INST_0_i_27_n_0\
+    );
+\lcd_out[6]_INST_0_i_28\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"45"
+    )
+        port map (
+      I0 => \LED_BCD0__107_carry__2_n_3\,
+      I1 => displayed_number(15),
+      I2 => \LED_BCD0__82_carry__1_n_7\,
+      O => \lcd_out[6]_INST_0_i_28_n_0\
+    );
+\lcd_out[6]_INST_0_i_29\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"38203820382030E0"
+    )
+        port map (
+      I0 => \LED_BCD1__91_carry__0_n_5\,
+      I1 => \LED_BCD1__91_carry__0_n_7\,
+      I2 => \LED_BCD1__91_carry__0_n_6\,
+      I3 => \LED_BCD1__91_carry_n_4\,
+      I4 => \LED_BCD1__91_carry_n_6\,
+      I5 => \LED_BCD1__91_carry_n_5\,
+      O => \lcd_out[6]_INST_0_i_29_n_0\
+    );
+\lcd_out[6]_INST_0_i_3\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"6FFF"
+    )
+        port map (
+      I0 => \lcd_out[6]_INST_0_i_14_n_0\,
+      I1 => LED_BCD1(1),
+      I2 => LED_activating_counter(0),
+      I3 => LED_activating_counter(1),
       O => \lcd_out[6]_INST_0_i_3_n_0\
     );
 \lcd_out[6]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFF90009F00"
+      INIT => X"3323302330233323"
     )
         port map (
-      I0 => LED_BCD1(1),
-      I1 => \lcd_out[6]_INST_0_i_9_n_0\,
-      I2 => LED_activating_counter(0),
-      I3 => LED_activating_counter(1),
-      I4 => \lcd_out[6]_INST_0_i_16_n_0\,
-      I5 => \lcd_out[6]_INST_0_i_17_n_0\,
+      I0 => \lcd_out[6]_INST_0_i_14_n_0\,
+      I1 => \lcd_out[6]_INST_0_i_15_n_0\,
+      I2 => LED_activating_counter(1),
+      I3 => LED_activating_counter(0),
+      I4 => \lcd_out[6]_INST_0_i_11_n_0\,
+      I5 => \LED_BCD0_carry__1_n_7\,
       O => \lcd_out[6]_INST_0_i_4_n_0\
     );
 \lcd_out[6]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"9996FFFFFFFFFFFF"
+      INIT => X"8020802228088802"
     )
         port map (
-      I0 => \lcd_out[6]_INST_0_i_18_n_0\,
-      I1 => \lcd_out[6]_INST_0_i_16_n_0\,
-      I2 => LED_BCD1(1),
-      I3 => \lcd_out[6]_INST_0_i_9_n_0\,
-      I4 => LED_activating_counter(0),
-      I5 => LED_activating_counter(1),
+      I0 => \lcd_out[6]_INST_0_i_16_n_0\,
+      I1 => \lcd_out[6]_INST_0_i_17_n_0\,
+      I2 => \lcd_out[6]_INST_0_i_18_n_0\,
+      I3 => \lcd_out[6]_INST_0_i_19_n_0\,
+      I4 => LED_BCD1(1),
+      I5 => \lcd_out[6]_INST_0_i_20_n_0\,
       O => \lcd_out[6]_INST_0_i_5_n_0\
     );
 \lcd_out[6]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0100805557FAEA00"
+      INIT => X"FFFFFFFF6AAA0000"
     )
         port map (
-      I0 => \LED_BCD1__91_carry_n_4\,
-      I1 => \LED_BCD1__91_carry_n_6\,
-      I2 => \LED_BCD1__91_carry_n_5\,
-      I3 => \LED_BCD1__91_carry__0_n_5\,
-      I4 => \LED_BCD1__91_carry__0_n_7\,
-      I5 => \LED_BCD1__91_carry__0_n_6\,
+      I0 => \LED_BCD0_carry__1_n_0\,
+      I1 => \lcd_out[6]_INST_0_i_10_n_0\,
+      I2 => \lcd_out[6]_INST_0_i_11_n_0\,
+      I3 => \LED_BCD0_carry__1_n_5\,
+      I4 => \lcd_out[6]_INST_0_i_9_n_0\,
+      I5 => \lcd_out[6]_INST_0_i_21_n_0\,
       O => \lcd_out[6]_INST_0_i_6_n_0\
     );
 \lcd_out[6]_INST_0_i_7\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"4040BFBF4000BFBF"
+      INIT => X"C3D3C3B4FFFFFFFF"
     )
         port map (
-      I0 => \LED_BCD0__14_carry__0_n_0\,
-      I1 => \LED_BCD0_carry__1_n_7\,
-      I2 => \LED_BCD0_carry__1_n_6\,
-      I3 => \LED_BCD0_carry__1_n_0\,
-      I4 => \LED_BCD0_carry__1_n_5\,
-      I5 => \LED_BCD1__77_carry__1_i_1_n_0\,
+      I0 => \lcd_out[6]_INST_0_i_17_n_0\,
+      I1 => \lcd_out[6]_INST_0_i_18_n_0\,
+      I2 => \lcd_out[6]_INST_0_i_19_n_0\,
+      I3 => LED_BCD1(1),
+      I4 => \lcd_out[6]_INST_0_i_20_n_0\,
+      I5 => \lcd_out[6]_INST_0_i_16_n_0\,
       O => \lcd_out[6]_INST_0_i_7_n_0\
     );
-\lcd_out[6]_INST_0_i_8\: unisim.vcomponents.LUT4
+\lcd_out[6]_INST_0_i_8\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"1001"
+      INIT => X"00AA00C3"
     )
         port map (
-      I0 => LED_activating_counter(1),
-      I1 => LED_activating_counter(0),
-      I2 => \lcd_out[6]_INST_0_i_19_n_0\,
-      I3 => \LED_BCD0__29_carry__2_n_6\,
+      I0 => \lcd_out[6]_INST_0_i_22_n_0\,
+      I1 => \LED_BCD0__29_carry__2_n_6\,
+      I2 => \lcd_out[6]_INST_0_i_23_n_0\,
+      I3 => LED_activating_counter(0),
+      I4 => LED_activating_counter(1),
       O => \lcd_out[6]_INST_0_i_8_n_0\
     );
-\lcd_out[6]_INST_0_i_9\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"AA20200F0FFBFBAA"
-    )
-        port map (
-      I0 => \lcd_out[6]_INST_0_i_16_n_0\,
-      I1 => LED_BCD1(1),
-      I2 => \lcd_out[6]_INST_0_i_18_n_0\,
-      I3 => \lcd_out[6]_INST_0_i_6_n_0\,
-      I4 => \lcd_out[6]_INST_0_i_20_n_0\,
-      I5 => \lcd_out[6]_INST_0_i_21_n_0\,
-      O => \lcd_out[6]_INST_0_i_9_n_0\
-    );
-\one_second_counter[0]_i_2\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(0),
-      O => \one_second_counter[0]_i_2_n_0\
-    );
-\one_second_counter[0]_i_3\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(3),
-      O => \one_second_counter[0]_i_3_n_0\
-    );
-\one_second_counter[0]_i_4\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(2),
-      O => \one_second_counter[0]_i_4_n_0\
-    );
-\one_second_counter[0]_i_5\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(1),
-      O => \one_second_counter[0]_i_5_n_0\
-    );
-\one_second_counter[0]_i_6\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"0D"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(0),
-      O => \one_second_counter[0]_i_6_n_0\
-    );
-\one_second_counter[0]_i_7\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"000000005555DDDF"
-    )
-        port map (
-      I0 => \displayed_number[0]_i_5_n_0\,
-      I1 => \displayed_number[0]_i_7_n_0\,
-      I2 => \displayed_number[0]_i_4_n_0\,
-      I3 => \displayed_number[0]_i_6_n_0\,
-      I4 => \one_second_counter[0]_i_8_n_0\,
-      I5 => one_second_counter_reg(25),
-      O => \one_second_counter[0]_i_7_n_0\
-    );
-\one_second_counter[0]_i_8\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"EA"
-    )
-        port map (
-      I0 => one_second_counter_reg(19),
-      I1 => one_second_counter_reg(17),
-      I2 => one_second_counter_reg(18),
-      O => \one_second_counter[0]_i_8_n_0\
-    );
-\one_second_counter[12]_i_2\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(15),
-      O => \one_second_counter[12]_i_2_n_0\
-    );
-\one_second_counter[12]_i_3\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(14),
-      O => \one_second_counter[12]_i_3_n_0\
-    );
-\one_second_counter[12]_i_4\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(13),
-      O => \one_second_counter[12]_i_4_n_0\
-    );
-\one_second_counter[12]_i_5\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(12),
-      O => \one_second_counter[12]_i_5_n_0\
-    );
-\one_second_counter[16]_i_2\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(19),
-      O => \one_second_counter[16]_i_2_n_0\
-    );
-\one_second_counter[16]_i_3\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(18),
-      O => \one_second_counter[16]_i_3_n_0\
-    );
-\one_second_counter[16]_i_4\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(17),
-      O => \one_second_counter[16]_i_4_n_0\
-    );
-\one_second_counter[16]_i_5\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(16),
-      O => \one_second_counter[16]_i_5_n_0\
-    );
-\one_second_counter[20]_i_2\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(23),
-      O => \one_second_counter[20]_i_2_n_0\
-    );
-\one_second_counter[20]_i_3\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(22),
-      O => \one_second_counter[20]_i_3_n_0\
-    );
-\one_second_counter[20]_i_4\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(21),
-      O => \one_second_counter[20]_i_4_n_0\
-    );
-\one_second_counter[20]_i_5\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(20),
-      O => \one_second_counter[20]_i_5_n_0\
-    );
-\one_second_counter[24]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"8"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      O => \one_second_counter[24]_i_2_n_0\
-    );
-\one_second_counter[24]_i_3\: unisim.vcomponents.LUT2
+\lcd_out[6]_INST_0_i_9\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"2"
     )
         port map (
-      I0 => one_second_counter_reg(25),
-      I1 => one_second_counter_reg(26),
-      O => \one_second_counter[24]_i_3_n_0\
-    );
-\one_second_counter[24]_i_4\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(24),
-      O => \one_second_counter[24]_i_4_n_0\
-    );
-\one_second_counter[4]_i_2\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(7),
-      O => \one_second_counter[4]_i_2_n_0\
-    );
-\one_second_counter[4]_i_3\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(6),
-      O => \one_second_counter[4]_i_3_n_0\
-    );
-\one_second_counter[4]_i_4\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(5),
-      O => \one_second_counter[4]_i_4_n_0\
-    );
-\one_second_counter[4]_i_5\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(4),
-      O => \one_second_counter[4]_i_5_n_0\
-    );
-\one_second_counter[8]_i_2\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(11),
-      O => \one_second_counter[8]_i_2_n_0\
-    );
-\one_second_counter[8]_i_3\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(10),
-      O => \one_second_counter[8]_i_3_n_0\
-    );
-\one_second_counter[8]_i_4\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(9),
-      O => \one_second_counter[8]_i_4_n_0\
-    );
-\one_second_counter[8]_i_5\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"D0"
-    )
-        port map (
-      I0 => one_second_counter_reg(26),
-      I1 => \one_second_counter[0]_i_7_n_0\,
-      I2 => one_second_counter_reg(8),
-      O => \one_second_counter[8]_i_5_n_0\
-    );
-\one_second_counter_reg[0]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[0]_i_1_n_7\,
-      Q => one_second_counter_reg(0)
-    );
-\one_second_counter_reg[0]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => '0',
-      CO(3) => \one_second_counter_reg[0]_i_1_n_0\,
-      CO(2) => \one_second_counter_reg[0]_i_1_n_1\,
-      CO(1) => \one_second_counter_reg[0]_i_1_n_2\,
-      CO(0) => \one_second_counter_reg[0]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 1) => B"000",
-      DI(0) => \one_second_counter[0]_i_2_n_0\,
-      O(3) => \one_second_counter_reg[0]_i_1_n_4\,
-      O(2) => \one_second_counter_reg[0]_i_1_n_5\,
-      O(1) => \one_second_counter_reg[0]_i_1_n_6\,
-      O(0) => \one_second_counter_reg[0]_i_1_n_7\,
-      S(3) => \one_second_counter[0]_i_3_n_0\,
-      S(2) => \one_second_counter[0]_i_4_n_0\,
-      S(1) => \one_second_counter[0]_i_5_n_0\,
-      S(0) => \one_second_counter[0]_i_6_n_0\
-    );
-\one_second_counter_reg[10]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[8]_i_1_n_5\,
-      Q => one_second_counter_reg(10)
-    );
-\one_second_counter_reg[11]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[8]_i_1_n_4\,
-      Q => one_second_counter_reg(11)
-    );
-\one_second_counter_reg[12]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[12]_i_1_n_7\,
-      Q => one_second_counter_reg(12)
-    );
-\one_second_counter_reg[12]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \one_second_counter_reg[8]_i_1_n_0\,
-      CO(3) => \one_second_counter_reg[12]_i_1_n_0\,
-      CO(2) => \one_second_counter_reg[12]_i_1_n_1\,
-      CO(1) => \one_second_counter_reg[12]_i_1_n_2\,
-      CO(0) => \one_second_counter_reg[12]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => B"0000",
-      O(3) => \one_second_counter_reg[12]_i_1_n_4\,
-      O(2) => \one_second_counter_reg[12]_i_1_n_5\,
-      O(1) => \one_second_counter_reg[12]_i_1_n_6\,
-      O(0) => \one_second_counter_reg[12]_i_1_n_7\,
-      S(3) => \one_second_counter[12]_i_2_n_0\,
-      S(2) => \one_second_counter[12]_i_3_n_0\,
-      S(1) => \one_second_counter[12]_i_4_n_0\,
-      S(0) => \one_second_counter[12]_i_5_n_0\
-    );
-\one_second_counter_reg[13]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[12]_i_1_n_6\,
-      Q => one_second_counter_reg(13)
-    );
-\one_second_counter_reg[14]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[12]_i_1_n_5\,
-      Q => one_second_counter_reg(14)
-    );
-\one_second_counter_reg[15]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[12]_i_1_n_4\,
-      Q => one_second_counter_reg(15)
-    );
-\one_second_counter_reg[16]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[16]_i_1_n_7\,
-      Q => one_second_counter_reg(16)
-    );
-\one_second_counter_reg[16]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \one_second_counter_reg[12]_i_1_n_0\,
-      CO(3) => \one_second_counter_reg[16]_i_1_n_0\,
-      CO(2) => \one_second_counter_reg[16]_i_1_n_1\,
-      CO(1) => \one_second_counter_reg[16]_i_1_n_2\,
-      CO(0) => \one_second_counter_reg[16]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => B"0000",
-      O(3) => \one_second_counter_reg[16]_i_1_n_4\,
-      O(2) => \one_second_counter_reg[16]_i_1_n_5\,
-      O(1) => \one_second_counter_reg[16]_i_1_n_6\,
-      O(0) => \one_second_counter_reg[16]_i_1_n_7\,
-      S(3) => \one_second_counter[16]_i_2_n_0\,
-      S(2) => \one_second_counter[16]_i_3_n_0\,
-      S(1) => \one_second_counter[16]_i_4_n_0\,
-      S(0) => \one_second_counter[16]_i_5_n_0\
-    );
-\one_second_counter_reg[17]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[16]_i_1_n_6\,
-      Q => one_second_counter_reg(17)
-    );
-\one_second_counter_reg[18]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[16]_i_1_n_5\,
-      Q => one_second_counter_reg(18)
-    );
-\one_second_counter_reg[19]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[16]_i_1_n_4\,
-      Q => one_second_counter_reg(19)
-    );
-\one_second_counter_reg[1]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[0]_i_1_n_6\,
-      Q => one_second_counter_reg(1)
-    );
-\one_second_counter_reg[20]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[20]_i_1_n_7\,
-      Q => one_second_counter_reg(20)
-    );
-\one_second_counter_reg[20]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \one_second_counter_reg[16]_i_1_n_0\,
-      CO(3) => \one_second_counter_reg[20]_i_1_n_0\,
-      CO(2) => \one_second_counter_reg[20]_i_1_n_1\,
-      CO(1) => \one_second_counter_reg[20]_i_1_n_2\,
-      CO(0) => \one_second_counter_reg[20]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => B"0000",
-      O(3) => \one_second_counter_reg[20]_i_1_n_4\,
-      O(2) => \one_second_counter_reg[20]_i_1_n_5\,
-      O(1) => \one_second_counter_reg[20]_i_1_n_6\,
-      O(0) => \one_second_counter_reg[20]_i_1_n_7\,
-      S(3) => \one_second_counter[20]_i_2_n_0\,
-      S(2) => \one_second_counter[20]_i_3_n_0\,
-      S(1) => \one_second_counter[20]_i_4_n_0\,
-      S(0) => \one_second_counter[20]_i_5_n_0\
-    );
-\one_second_counter_reg[21]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[20]_i_1_n_6\,
-      Q => one_second_counter_reg(21)
-    );
-\one_second_counter_reg[22]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[20]_i_1_n_5\,
-      Q => one_second_counter_reg(22)
-    );
-\one_second_counter_reg[23]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[20]_i_1_n_4\,
-      Q => one_second_counter_reg(23)
-    );
-\one_second_counter_reg[24]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[24]_i_1_n_7\,
-      Q => one_second_counter_reg(24)
-    );
-\one_second_counter_reg[24]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \one_second_counter_reg[20]_i_1_n_0\,
-      CO(3 downto 2) => \NLW_one_second_counter_reg[24]_i_1_CO_UNCONNECTED\(3 downto 2),
-      CO(1) => \one_second_counter_reg[24]_i_1_n_2\,
-      CO(0) => \one_second_counter_reg[24]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => B"0000",
-      O(3) => \NLW_one_second_counter_reg[24]_i_1_O_UNCONNECTED\(3),
-      O(2) => \one_second_counter_reg[24]_i_1_n_5\,
-      O(1) => \one_second_counter_reg[24]_i_1_n_6\,
-      O(0) => \one_second_counter_reg[24]_i_1_n_7\,
-      S(3) => '0',
-      S(2) => \one_second_counter[24]_i_2_n_0\,
-      S(1) => \one_second_counter[24]_i_3_n_0\,
-      S(0) => \one_second_counter[24]_i_4_n_0\
-    );
-\one_second_counter_reg[25]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[24]_i_1_n_6\,
-      Q => one_second_counter_reg(25)
-    );
-\one_second_counter_reg[26]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[24]_i_1_n_5\,
-      Q => one_second_counter_reg(26)
-    );
-\one_second_counter_reg[2]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[0]_i_1_n_5\,
-      Q => one_second_counter_reg(2)
-    );
-\one_second_counter_reg[3]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[0]_i_1_n_4\,
-      Q => one_second_counter_reg(3)
-    );
-\one_second_counter_reg[4]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[4]_i_1_n_7\,
-      Q => one_second_counter_reg(4)
-    );
-\one_second_counter_reg[4]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \one_second_counter_reg[0]_i_1_n_0\,
-      CO(3) => \one_second_counter_reg[4]_i_1_n_0\,
-      CO(2) => \one_second_counter_reg[4]_i_1_n_1\,
-      CO(1) => \one_second_counter_reg[4]_i_1_n_2\,
-      CO(0) => \one_second_counter_reg[4]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => B"0000",
-      O(3) => \one_second_counter_reg[4]_i_1_n_4\,
-      O(2) => \one_second_counter_reg[4]_i_1_n_5\,
-      O(1) => \one_second_counter_reg[4]_i_1_n_6\,
-      O(0) => \one_second_counter_reg[4]_i_1_n_7\,
-      S(3) => \one_second_counter[4]_i_2_n_0\,
-      S(2) => \one_second_counter[4]_i_3_n_0\,
-      S(1) => \one_second_counter[4]_i_4_n_0\,
-      S(0) => \one_second_counter[4]_i_5_n_0\
-    );
-\one_second_counter_reg[5]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[4]_i_1_n_6\,
-      Q => one_second_counter_reg(5)
-    );
-\one_second_counter_reg[6]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[4]_i_1_n_5\,
-      Q => one_second_counter_reg(6)
-    );
-\one_second_counter_reg[7]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[4]_i_1_n_4\,
-      Q => one_second_counter_reg(7)
-    );
-\one_second_counter_reg[8]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[8]_i_1_n_7\,
-      Q => one_second_counter_reg(8)
-    );
-\one_second_counter_reg[8]_i_1\: unisim.vcomponents.CARRY4
-     port map (
-      CI => \one_second_counter_reg[4]_i_1_n_0\,
-      CO(3) => \one_second_counter_reg[8]_i_1_n_0\,
-      CO(2) => \one_second_counter_reg[8]_i_1_n_1\,
-      CO(1) => \one_second_counter_reg[8]_i_1_n_2\,
-      CO(0) => \one_second_counter_reg[8]_i_1_n_3\,
-      CYINIT => '0',
-      DI(3 downto 0) => B"0000",
-      O(3) => \one_second_counter_reg[8]_i_1_n_4\,
-      O(2) => \one_second_counter_reg[8]_i_1_n_5\,
-      O(1) => \one_second_counter_reg[8]_i_1_n_6\,
-      O(0) => \one_second_counter_reg[8]_i_1_n_7\,
-      S(3) => \one_second_counter[8]_i_2_n_0\,
-      S(2) => \one_second_counter[8]_i_3_n_0\,
-      S(1) => \one_second_counter[8]_i_4_n_0\,
-      S(0) => \one_second_counter[8]_i_5_n_0\
-    );
-\one_second_counter_reg[9]\: unisim.vcomponents.FDCE
-     port map (
-      C => clock_100Mhz,
-      CE => '1',
-      CLR => \refresh_counter[0]_i_2_n_0\,
-      D => \one_second_counter_reg[8]_i_1_n_6\,
-      Q => one_second_counter_reg(9)
+      I0 => LED_activating_counter(0),
+      I1 => LED_activating_counter(1),
+      O => \lcd_out[6]_INST_0_i_9_n_0\
     );
 \refresh_counter[0]_i_2\: unisim.vcomponents.LUT1
     generic map(
@@ -4537,6 +3491,7 @@ entity design_1_Segment_Controller_0_0 is
   port (
     clock_100Mhz : in STD_LOGIC;
     reset : in STD_LOGIC;
+    displayed_number : in STD_LOGIC_VECTOR ( 15 downto 0 );
     seg_out : out STD_LOGIC_VECTOR ( 3 downto 0 );
     lcd_out : out STD_LOGIC_VECTOR ( 6 downto 0 )
   );
@@ -4561,6 +3516,7 @@ begin
 inst: entity work.design_1_Segment_Controller_0_0_Segment_Controller
      port map (
       clock_100Mhz => clock_100Mhz,
+      displayed_number(15 downto 0) => displayed_number(15 downto 0),
       lcd_out(6 downto 0) => lcd_out(6 downto 0),
       reset => reset,
       seg_out(3 downto 0) => seg_out(3 downto 0)

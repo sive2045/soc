@@ -101,7 +101,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:3b6bbc7f</spirit:value>
+            <spirit:value>8:dd0a8939</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -117,11 +117,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Nov 29 14:53:47 UTC 2021</spirit:value>
+            <spirit:value>Tue Nov 30 12:49:34 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:3b6bbc7f</spirit:value>
+            <spirit:value>8:dd0a8939</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -133,7 +133,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:f547f3f5</spirit:value>
+            <spirit:value>8:37aeaaa7</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -149,11 +149,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Nov 29 14:53:47 UTC 2021</spirit:value>
+            <spirit:value>Tue Nov 30 12:49:34 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:f547f3f5</spirit:value>
+            <spirit:value>8:37aeaaa7</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -167,11 +167,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Nov 29 14:54:30 UTC 2021</spirit:value>
+            <spirit:value>Tue Nov 30 12:50:20 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:3b6bbc7f</spirit:value>
+            <spirit:value>8:dd0a8939</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -197,6 +197,23 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>displayed_number</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>

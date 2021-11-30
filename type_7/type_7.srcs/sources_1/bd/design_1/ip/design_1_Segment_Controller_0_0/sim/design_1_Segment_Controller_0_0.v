@@ -56,6 +56,7 @@
 module design_1_Segment_Controller_0_0 (
   clock_100Mhz,
   reset,
+  displayed_number,
   seg_out,
   lcd_out
 );
@@ -66,12 +67,14 @@ input wire clock_100Mhz;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_LOW" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
 input wire reset;
+input wire [15 : 0] displayed_number;
 output wire [3 : 0] seg_out;
 output wire [6 : 0] lcd_out;
 
   Segment_Controller inst (
     .clock_100Mhz(clock_100Mhz),
     .reset(reset),
+    .displayed_number(displayed_number),
     .seg_out(seg_out),
     .lcd_out(lcd_out)
   );

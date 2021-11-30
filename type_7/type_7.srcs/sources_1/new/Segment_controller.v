@@ -3,13 +3,13 @@
 module Segment_Controller(
     input clock_100Mhz, // 100 Mhz clock source on Basys 3 FPGA
     input reset, // reset
+    input [15:0] displayed_number, // counting number to be displayed
     output reg [3:0] seg_out, // anode signals of the 7-segment LED display
     output reg [6:0] lcd_out// cathode patterns of the 7-segment LED display
     );
 
     reg [26:0] one_second_counter; // counter for generating 1 second clock enable
-    wire one_second_enable;// one second enable for counting numbers
-    reg [15:0] displayed_number; // counting number to be displayed
+    wire one_second_enable;// one second enable for counting numbers    
     reg [3:0] LED_BCD;
     reg [19:0] refresh_counter; // 20-bit for creating 10.5ms refresh period or 380Hz refresh rate
              // the first 2 MSB bits for creating 4 LED-activating signals with 2.6ms digit period
@@ -17,31 +17,6 @@ module Segment_Controller(
                  // count     0    ->  1  ->  2  ->  3
              // activates    LED1    LED2   LED3   LED4
              // and repeat
-             
-    always @(posedge clock_100Mhz or posedge reset)
-    begin
-        if(reset == 0)
-            one_second_counter <= 0;
-        else begin
-            if(one_second_counter>=99999999) 
-                 one_second_counter <= 0;
-            else
-                one_second_counter <= one_second_counter + 1;
-        end
-    end 
-    
-    
-    assign one_second_enable = (one_second_counter==99999999)?1:0;
-    
-    
-    always @(posedge clock_100Mhz or posedge reset)
-    begin
-        if(reset == 0)
-            displayed_number <= 0;
-        else if(one_second_enable==1)
-            displayed_number <= displayed_number + 1;
-    end
-    
     
     always @(posedge clock_100Mhz or posedge reset)
     begin 

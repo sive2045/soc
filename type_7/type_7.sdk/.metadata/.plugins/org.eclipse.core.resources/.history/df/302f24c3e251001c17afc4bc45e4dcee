@@ -1,0 +1,91 @@
+#include <stdio.h>
+#include "platform.h"
+#include "xparameters.h"
+#include "xgpiops.h"
+#include "xil_printf.h"
+#include "xgpio.h"
+#include "sleep.h"
+#include "xstatus.h"
+
+
+/*
+ * The following constants map to the XPAR parameters created in the
+ * xparameters.h file. They are defined here such that a user can easily
+ * change all the needed parameters in one place.
+ */
+#define GPIO_EXAMPLE_DEVICE_ID  XPAR_GPIO_0_DEVICE_ID
+#define GPIO_CHANNEL 1
+#define GPIO_DEVICE_ID XPAR_XGPIOPS_0_DEVICE_ID
+#define PS_BTN 		0 	/* MIO50, pin connected to PS Push BTN */
+#define PS_LED_0 	52 	/* MIO52, pin connected to PS LED RED */
+#define PS_LED_1 	53 	/* MIO53, pin connected to PS LED GREEN */
+#define printf xil_printf /* Smalller foot-print printf */
+
+
+XGpio GpioPL; /* The Instance of the GPIO Driver */
+XGpioPs GpioPs;
+XGpioPs_Config *ConfigPtr;
+
+
+int main() {
+	u8 push_btn = 0;
+	int Status_PS;
+	int Status_PL;
+	uint16_t number = 0;
+
+	init_platform();
+
+	/* Initialize the GPIO(PL) driver */
+	Status_PL = XGpio_Initialize(&GpioPL, GPIO_EXAMPLE_DEVICE_ID);
+	if (Status_PL != XST_SUCCESS) {
+		printf("GPIO Initialization Failed\r\n");
+		return XST_FAILURE;
+	}
+
+	// Initialize the GpioPs driver.
+	ConfigPtr = XGpioPs_LookupConfig(GPIO_DEVICE_ID);
+	Status_PS = XGpioPs_CfgInitialize(&GpioPs, ConfigPtr, ConfigPtr->BaseAddr);
+
+	if (Status_PS != XST_SUCCESS){
+		return XST_FAILURE;
+	}
+
+	printf("7 Segment Display \n\r");
+
+	/* Set the direction for all signals as  output */
+	XGpio_SetDataDirection(&GpioPL, GPIO_CHANNEL, 0x00);
+
+	// Configure PS LED 4 as output
+	XGpioPs_SetDirectionPin(&GpioPs, 	PS_LED_0, 1);
+	XGpioPs_SetOutputEnablePin(&GpioPs, PS_LED_0, 1);
+	XGpioPs_SetDirectionPin(&GpioPs, 	PS_LED_1, 1);
+	XGpioPs_SetOutputEnablePin(&GpioPs, PS_LED_1, 1);
+
+	// Set PS Push Button 4 to be input
+	XGpioPs_SetDirectionPin(&GpioPs, PS_BTN, 0);
+
+	while(1) {
+		number = rand() % 10000 + 1;
+
+		printf("Number : %d \r\n", number);
+		XGpio_DiscreteWrite(&GpioPL, GPIO_CHANNEL, number);
+
+		// Toggle Button
+		if ( XGpioPs_ReadPin(&GpioPs, PS_BTN) )
+		{
+			push_btn = !push_btn;
+
+			// Toggle PS LED according to push button status
+			XGpioPs_WritePin(&GpioPs, PS_LED_0, push_btn);
+			XGpioPs_WritePin(&GpioPs, PS_LED_1, push_btn);
+		}
+
+		sleep(1);
+	}
+
+	cleanup_platform();
+	return 0;
+}
+
+
+
