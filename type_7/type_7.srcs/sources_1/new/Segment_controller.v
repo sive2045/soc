@@ -38,27 +38,47 @@ module Segment_Controller(
         2'b00: begin
             seg_out = 4'b0111; 
             // activate LED1 and Deactivate LED2, LED3, LED4
-            LED_BCD = displayed_number/1000;
-            // the first digit of the 16-bit number
-              end
+            case(displayed_number)
+            8000: LED_BCD = 13;
+            8001: LED_BCD = 12;
+            8002: LED_BCD = 11;
+            8003: LED_BCD = 10;
+            default: LED_BCD = displayed_number/1000;
+            endcase
+        end
         2'b01: begin
             seg_out = 4'b1011; 
             // activate LED2 and Deactivate LED1, LED3, LED4
-            LED_BCD = (displayed_number % 1000)/100;
-            // the second digit of the 16-bit number
-              end
+            case(displayed_number)
+            8000: LED_BCD = 12;
+            8001: LED_BCD = 11;
+            8002: LED_BCD = 10;
+            8003: LED_BCD = 13;
+            default: LED_BCD = (displayed_number % 1000)/100;
+            endcase            
+        end
         2'b10: begin
             seg_out = 4'b1101; 
             // activate LED3 and Deactivate LED2, LED1, LED4
-            LED_BCD = ((displayed_number % 1000)%100)/10;
-            // the third digit of the 16-bit number
-                end
+            case(displayed_number)
+            8000: LED_BCD = 11;
+            8001: LED_BCD = 10;
+            8002: LED_BCD = 13;
+            8003: LED_BCD = 12;
+            default: LED_BCD = ((displayed_number % 1000)%100)/10;
+            endcase            
+        end
         2'b11: begin
             seg_out = 4'b1110; 
             // activate LED4 and Deactivate LED2, LED3, LED1
-            LED_BCD = ((displayed_number % 1000)%100)%10;
-            // the fourth digit of the 16-bit number    
-               end
+            case(displayed_number)
+            8000: LED_BCD = 10;
+            8001: LED_BCD = 13;
+            8002: LED_BCD = 12;
+            8003: LED_BCD = 11;
+            default: LED_BCD = ((displayed_number % 1000)%100)%10;
+            endcase             
+        end
         endcase
     end
     
@@ -75,6 +95,10 @@ module Segment_Controller(
         4'b0111: lcd_out = 7'b1110000; // "7" 
         4'b1000: lcd_out = 7'b1111111; // "8"     
         4'b1001: lcd_out = 7'b1111011; // "9" 
+        4'b1010: lcd_out = 7'b1001110; // "C"
+        4'b1011: lcd_out = 7'b1111110; // "O" 
+        4'b1100: lcd_out = 7'b1011011; // "S" 
+        4'b1101: lcd_out = 7'b0000000; // "None"    
         default: lcd_out = 7'b1111110; // "0"
         endcase
     end
