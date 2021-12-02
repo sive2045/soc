@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
-| Date             : Thu Dec  2 00:16:06 2021
+| Date             : Thu Dec  2 18:50:01 2021
 | Host             : DESKTOP-A6NE7RQ running 64-bit major release  (build 9200)
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.315        |
+| Total On-Chip Power (W)  | 1.316        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.197        |
+| Dynamic (W)              | 1.198        |
 | Device Static (W)        | 0.118        |
 | Effective TJA (C/W)      | 11.5         |
 | Max Ambient (C)          | 69.8         |
@@ -52,18 +52,18 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.003 |        4 |       --- |             --- |
-| Slice Logic             |     0.001 |     1713 |       --- |             --- |
-|   LUT as Logic          |    <0.001 |      580 |     14400 |            4.03 |
+| Clocks                  |     0.002 |        4 |       --- |             --- |
+| Slice Logic             |     0.001 |     1729 |       --- |             --- |
+|   LUT as Logic          |    <0.001 |      586 |     14400 |            4.07 |
 |   Register              |    <0.001 |      686 |     28800 |            2.38 |
 |   CARRY4                |    <0.001 |       59 |      4400 |            1.34 |
 |   LUT as Shift Register |    <0.001 |       61 |      6000 |            1.02 |
 |   Others                |     0.000 |      162 |       --- |             --- |
-| Signals                 |     0.002 |     1278 |       --- |             --- |
+| Signals                 |     0.002 |     1288 |       --- |             --- |
 | I/O                     |     0.014 |       11 |        54 |           20.37 |
 | PS7                     |     1.178 |        1 |       --- |             --- |
 | Static Power            |     0.118 |          |           |                 |
-| Total                   |     1.315 |          |           |                 |
+| Total                   |     1.316 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -150,7 +150,7 @@ Table of Contents
 +-----------------------------------------------------------------------------+-----------+
 | Name                                                                        | Power (W) |
 +-----------------------------------------------------------------------------+-----------+
-| design_1_wrapper                                                            |     1.197 |
+| design_1_wrapper                                                            |     1.198 |
 |   design_1_i                                                                |     1.183 |
 |     Segment_Controller_0                                                    |     0.001 |
 |       inst                                                                  |     0.001 |

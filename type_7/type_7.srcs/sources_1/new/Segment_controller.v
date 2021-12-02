@@ -43,6 +43,8 @@ module Segment_Controller(
             8001: LED_BCD = 12;
             8002: LED_BCD = 11;
             8003: LED_BCD = 10;
+            8004: LED_BCD = 14;
+            8005: LED_BCD = 15;
             default: LED_BCD = displayed_number/1000;
             endcase
         end
@@ -54,6 +56,8 @@ module Segment_Controller(
             8001: LED_BCD = 11;
             8002: LED_BCD = 10;
             8003: LED_BCD = 13;
+            8004: LED_BCD = 15;
+            8005: LED_BCD = 14;            
             default: LED_BCD = (displayed_number % 1000)/100;
             endcase            
         end
@@ -65,6 +69,8 @@ module Segment_Controller(
             8001: LED_BCD = 10;
             8002: LED_BCD = 13;
             8003: LED_BCD = 12;
+            8004: LED_BCD = 14;
+            8005: LED_BCD = 15;            
             default: LED_BCD = ((displayed_number % 1000)%100)/10;
             endcase            
         end
@@ -76,6 +82,8 @@ module Segment_Controller(
             8001: LED_BCD = 13;
             8002: LED_BCD = 12;
             8003: LED_BCD = 11;
+            8004: LED_BCD = 15;
+            8005: LED_BCD = 14;            
             default: LED_BCD = ((displayed_number % 1000)%100)%10;
             endcase             
         end
@@ -98,7 +106,9 @@ module Segment_Controller(
         4'b1010: lcd_out = 7'b1001110; // "C"
         4'b1011: lcd_out = 7'b1111110; // "O" 
         4'b1100: lcd_out = 7'b1011011; // "S" 
-        4'b1101: lcd_out = 7'b0000000; // "None"    
+        4'b1101: lcd_out = 7'b0000000; // "None"
+        4'b1110: lcd_out = 7'b1000000; // "-"
+        4'b1111: lcd_out = 7'b0001000; // "_"                    
         default: lcd_out = 7'b1111110; // "0"
         endcase
     end

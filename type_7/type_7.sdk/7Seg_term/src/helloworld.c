@@ -97,14 +97,50 @@ int main(void)
 
 	/* Set the direction for all signals as  output */
 	XGpio_SetDataDirection(&GpioPL, GPIO_CHANNEL, 0x00);
-	XGpio_DiscreteWrite(&GpioPL, GPIO_CHANNEL, number);
-
-	cleanup_platform();
 
 	/*
 	 *GpioIntrButton is the Actual Heart of our Application
 	 */
 	GpioIntrButton(&Intc, &Gpio, GPIO_DEVICE_ID, GPIO_INTERRUPT_ID);
+	uint16_t i = 0;
+	while(1)
+	{
+		if (pattern == 0)
+		{
+			XGpio_DiscreteWrite(&GpioPL, GPIO_CHANNEL, 8000);
+			usleep(300000); // 300ms
+			XGpio_DiscreteWrite(&GpioPL, GPIO_CHANNEL, 8001);
+			usleep(300000);
+			XGpio_DiscreteWrite(&GpioPL, GPIO_CHANNEL, 8002);
+			usleep(300000);
+			XGpio_DiscreteWrite(&GpioPL, GPIO_CHANNEL, 8003);
+			usleep(300000);
+		}
+		else if (pattern == 1)
+		{
+			XGpio_DiscreteWrite(&GpioPL, GPIO_CHANNEL, 8000);
+			usleep(300000);
+			XGpio_DiscreteWrite(&GpioPL, GPIO_CHANNEL, 8003);
+			usleep(300000);
+			XGpio_DiscreteWrite(&GpioPL, GPIO_CHANNEL, 8002);
+			usleep(300000);
+			XGpio_DiscreteWrite(&GpioPL, GPIO_CHANNEL, 8001);
+			usleep(300000);
+		}
+		else if (pattern == 2)
+		{
+			XGpio_DiscreteWrite(&GpioPL, GPIO_CHANNEL, 8004);
+			usleep(100000);
+			XGpio_DiscreteWrite(&GpioPL, GPIO_CHANNEL, 8005);
+			usleep(100000);
+		}
+		else if (pattern == 3)
+		{
+			XGpio_DiscreteWrite(&GpioPL, GPIO_CHANNEL, 2021);
+		}
+	}
+
+	cleanup_platform();
 
 	return XST_SUCCESS;
 }
@@ -164,46 +200,6 @@ void GpioIntrButton(XScuGic *Intc, XGpioPs *Gpio, u16 DeviceId, u16 GpioIntrId)
 
 	xil_printf("\n Press The PUSH Button \n\r");
 	pattern = 0U;	//Used to Change by Pressing Push Button
-
-	/*
-	 * Loop forever while the button changes are handled by the interrupt
-	 * level processing.
-	 */
-
-	u32 delay;//stores the Delay in Each Cycle of While Loop
-	u32 i;
-	while(1){
-		delay = LED_DELAY*(pattern+1);
-
-		for (i = 0 ; i < delay; i++);
-		XGpioPs_WritePin(Gpio, Output_Pin_R, 0x1);
-		XGpioPs_WritePin(Gpio, Output_Pin_G, 0x0);
-
-		for (i = 0 ; i < delay; i++);
-		XGpioPs_WritePin(Gpio, Output_Pin_R, 0x0);
-		XGpioPs_WritePin(Gpio, Output_Pin_G, 0x1);
-
-		if (pattern == 0)
-		{
-			XGpio_DiscreteWrite(&GpioPL, GPIO_CHANNEL, 8000);
-			sleep(1);
-			XGpio_DiscreteWrite(&GpioPL, GPIO_CHANNEL, 8001);
-			sleep(1);
-			XGpio_DiscreteWrite(&GpioPL, GPIO_CHANNEL, 8002);
-			sleep(1);
-			XGpio_DiscreteWrite(&GpioPL, GPIO_CHANNEL, 8003);
-			sleep(1);
-		}
-		else if (pattern == 1)
-		{
-			XGpio_DiscreteWrite(&GpioPL, GPIO_CHANNEL, 1111);
-		}
-		else if (pattern == 2)
-		{
-			XGpio_DiscreteWrite(&GpioPL, GPIO_CHANNEL, 2222);
-		}
-	}
-
 }
 
 /****************************************************************************/
@@ -226,7 +222,7 @@ static void IntrHandler(void *CallBackRef, u32 Bank, u32 Status)
 	 static u32 debouncer=0;
 	 debouncer += 1;
 	 if(debouncer % 2 == 0){
-	 	 pattern = (++pattern >= 3) ? 0 : pattern ;
+	 	 pattern = (++pattern >= 4) ? 0 : pattern ;
 		xil_printf("\nInterrupt code run - %u times",pattern);
 	 }
 	 xil_printf("\n Our Handler Called - %u times",debouncer);
